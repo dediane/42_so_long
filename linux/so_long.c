@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/21 17:24:47 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/21 23:02:35 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,38 +30,44 @@ void	mlx_image_put(t_data *img, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
+int	key_hook(int keycode, t_data *img)
+{
+	char *hello = "Hello from the keyhook";
+	write(1, &hello, ft_strlen(hello));
+	return (0);
+}
+
 int	main(void)
 {
 	void	*mlx;
 	void	*mlx_win;
 	t_data	img;
 
-	int j = 50;
-	int i = 50;
+	int j = 0;
+	int i = 0;
 
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, 600, 450, "Hello World!");
 	img.img = mlx_new_image(mlx, 600, 450);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	while ( ++j < 200)
+	/*while ( ++i < 300)
 	{
-		i = 50;
-		while (++i < 200)
+		j = 300 - k++;
+		while (++j < 300 + k)
 		{
-			mlx_image_put(&img, j, i, 0x00FF0000);
+			mlx_image_put(&img, j, i, 0x00ebb0ba);
+			mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+		}
+	}*/
+	while (++i < 450)
+	{
+		j = 0;	
+		while (++j < 600)
+		{
+			mlx_image_put(&img, j, i, 0x00ebb0ba);
 			mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 		}
 	}
-	j = 150;
-	while ( ++j < 350)
-	{
-		i = 150;
-		while (++i < 350)
-		{
-			mlx_image_put(&img, j, i, 0x00FF0000);
-			mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-		}
-	}
-
+	mlx_key_hook(mlx_win, key_hook, &img);
 	mlx_loop(mlx);
 }
