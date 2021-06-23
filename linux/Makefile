@@ -6,7 +6,7 @@
 #    By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 13:40:58 by ddecourt          #+#    #+#              #
-#    Updated: 2021/06/21 17:00:08 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/06/23 12:47:13 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CFLAGS	= -Wall -Wextra -Werror
 
 NAME	= so_long
 
-HEADER	= minilibx-linux/mlx.h
+HEADER	= minilibx/mlx.h
 
 OBJS	= ${SRCS:.c=.o}
 
