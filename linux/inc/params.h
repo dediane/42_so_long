@@ -1,23 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   params.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 11:44:32 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/23 12:03:55 by ddecourt         ###   ########.fr       */
+/*   Created: 2021/06/25 16:36:58 by ddecourt          #+#    #+#             */
+/*   Updated: 2021/06/25 16:37:04 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
+#ifndef PARAMS_H
+# define PARAMS_H
 
-#include <mlx.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include "includes/so_long.h"
-#include "libft/libft.h"
-#include "includes/keybinds.h"
+typedef	struct s_params
+{
+	void	*mlx;
+	void	*mlx_win;
+}				t_params;
+
+typedef struct s_img
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		width;
+	int		height;
+}			t_img;
+
+typedef	struct	s_env
+{
+	t_params	params;
+	t_img		img;
+	t_img		collect;
+	t_img		wall;
+	t_img		floor;
+	t_img		exit;
+}				t_env;
 
 #endif
+

@@ -6,60 +6,83 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/23 13:50:25 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/25 18:28:09 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "so_long.h"
 
-void	quit_program(t_vars *vars)
+/*int	create_trgb(int t, int r, int g, int b)
 {
-	printf("Goodbye \n");
-	mlx_destroy_window(vars->mlx, vars->win);
-	exit(1);
-}
+	return (t << 24 | r << 16 | g << 8 | b);
+}*/
 
-int	keypress(int key, t_vars *vars)
+/*int	keypress(int key, t_params *vars)
 {
 	if (key == ESC)
 		quit_program(vars);
-	if (key == UP)
+	if (key == UP || key == ARROW_UP)
 		printf("Move UP\n");
-	if (key == DOWN)
+	if (key == DOWN || key == ARROW_DOWN)
 		printf("Move DOWN\n");
-	if (key == LEFT)
+	if (key == LEFT || key == ARROW_LEFT)
 		printf("Move LEFT\n");
-	if (key == RIGHT)
+	if (key == RIGHT || key == ARROW_RIGHT)
 		printf("Move RIGHT\n");
+	if (key == SPACE)
+		printf("SPACE\n");
+	return (0);
+}*/
+
+/*void	draw_carre(struct s_env *env)
+{
+	int		i;
+	int		j;
+	int		color;
+
+	color = create_trgb(150, 120, 145, 160);
+	i = -1;
+	j = 0;
+	while(++i < 250)
+	{
+		j = 0;
+		while(j < 250)
+		{
+			my_mlx_pixel_put(&(env->img), 125 + j, 125 + i, color);
+			j++;
+		}
+	}
+}*/
+void	quit_program(t_params *params)
+{
+	write(1, "Goodbye!", 7);
+	mlx_destroy_window(params->mlx, params->mlx_win);
+	exit(1);
+}
+
+int	keypress(int key, t_params *params)
+{
+	if (key == ESC)
+		quit_program(params);
+	if (key == UP || key == ARROW_UP)
+		printf("UP\n");
+	if (key == DOWN || key ==ARROW_DOWN)
+		printf("DOWN\n");
+	if (key == LEFT || key == ARROW_LEFT)
+		printf("LEFT\n");
+	if (key == RIGHT || key == ARROW_RIGHT)
+		printf("RIGHT\n");
 	if (key == SPACE)
 		printf("SPACE\n");
 	return (0);
 }
 
-
-
-int main(void)
+int	create_trgb(int t, int r, int g, int b)
 {
-	t_vars vars;
-
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 800, 650, "So Long Game");
-	vars.img = mlx_new_image(vars.mlx, 600, 450);
-	mlx_hook(vars.win, 2, 1L<<0, keypress, &vars);
-	mlx_loop(vars.mlx);
+	return (t << 24 | r << 16 | g << 8 | b);
 }
 
-
-/*typedef struct	s_data 
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}					t_data;
-
-void	mlx_image_put(t_data *img, int x, int y, int color)
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
 	char *dst;
 
@@ -67,28 +90,17 @@ void	mlx_image_put(t_data *img, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-int	key_hook(int keycode, t_data *img)
+int main(void)
 {
-	char *hello = "Hello from the keyhook";
-	write(1, &hello, ft_strlen(hello));
-	return (0);
+	t_env	env;
+
+	env.params.mlx = mlx_init();
+	env.params.mlx_win = mlx_new_window(env.params.mlx, 800, 650, "So Long Game");
+	env.img.img = mlx_new_image(env.params.mlx, 800, 650);
+	env.img.addr = mlx_get_data_addr(env.img.img, &env.img.bits_per_pixel, &env.img.line_length, &env.img.endian);
+	mlx_hook(env.params.mlx_win, 2, 1L<<0,  keypress, &env.params);
+	my_mlx_pixel_put(&(env.img), 125, 125, create_trgb(180, 200, 120, 130));
+	/*draw_carre(&env);*/
+	mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.img.img, 0, 0);
+	mlx_loop(env.params.mlx);
 }
-
-int	main(void)
-{
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
-
-	int j = 0;
-	int i = 0;
-
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 600, 450, "Hello World!");
-	img.img = mlx_new_image(mlx, 600, 450);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	mlx_image_put(&img, 600, 450, 0x00ebb0ba);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_key_hook(mlx_win, key_hook, &img);
-	mlx_loop(mlx);
-}*/

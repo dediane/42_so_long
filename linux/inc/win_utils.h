@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   win_utils.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 13:46:24 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/23 13:48:46 by ddecourt         ###   ########.fr       */
+/*   Created: 2021/06/25 15:50:40 by ddecourt          #+#    #+#             */
+/*   Updated: 2021/06/25 16:34:39 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef WIN_UTILS_H
+# define WIN_UTILS_H
 
-typedef	struct	s_vars
-{
-	void	*mlx;
-	void	*win;
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_vars;
+void	quit_program(t_params *params);
+int	keypress(int key, t_params *params);
 
 #endif
-

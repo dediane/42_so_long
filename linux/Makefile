@@ -6,15 +6,17 @@
 #    By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 13:40:58 by ddecourt          #+#    #+#              #
-#    Updated: 2021/06/23 12:47:13 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/06/25 18:29:18 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-libft_cmd:
+lib_cmd:
 			make -C libft
-			mv libft/libft.a .
+			make -C minilibx
 
 SRCS	= so_long.c \
+		  #srcs/mlx_utils.c \
+		  srcs/win_utils.c \
 
 CC		= clang
 
@@ -22,15 +24,16 @@ CFLAGS	= -Wall -Wextra -Werror
 
 NAME	= so_long
 
-HEADER	= minilibx/mlx.h
+HEADER	= minilibx/mlx.h \
 
 OBJS	= ${SRCS:.c=.o}
 
+
 %.o: %.c
-	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	$(CC) $(CFLAGS) -Imlx_linux -O3 -c $< -o $@ 
 
 $(NAME): $(OBJS)
-		$(CC) $(CFLAGS) -I includes *.c -L /usr/local/lib -L./ -lft -lmlx -lXext -lX11 -lm -o ${NAME}
+		$(CC) $(CFLAGS) -I includes *.c -L ./minilibx/ -L./libft/ -lft -lmlx -lXext -lX11 -lm -o ${NAME}
 
 all:	${NAME}
 

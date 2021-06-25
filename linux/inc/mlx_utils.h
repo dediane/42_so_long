@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keybinds.h                                         :+:      :+:    :+:   */
+/*   mlx_utils.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 11:30:29 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/23 11:36:04 by ddecourt         ###   ########.fr       */
+/*   Created: 2021/06/25 15:47:42 by ddecourt          #+#    #+#             */
+/*   Updated: 2021/06/25 15:50:00 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEYBINDS_H
-# define KEYBINDS_H
+#ifndef	MLX_UTILS_H
+# define MLX_UTILS_H
 
-# define ESC 0xff1b
-# define UP 0x0077
-# define DOWN 0x0073
-# define LEFT 0x0064
-# define RIGHT 0x0061
-# define SPACE 0x0020
+int	create_trgb(int t, int r, int g, int b);
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 
 #endif
