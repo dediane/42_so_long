@@ -6,13 +6,13 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/28 18:53:09 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/28 19:30:05 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-/*void	draw_carre(struct s_env *env)
+void	draw_carre(struct s_env *env)
 {
 	int		i;
 	int		j;
@@ -30,13 +30,13 @@
 			j++;
 		}
 	}
-}*/
+}
 
 int main(int ac, char **av)
 {
 	int fd;
-	char **buf;
-	buf = NULL;
+	char *line;
+	line = NULL;
 	if (ac != 2)
 	{
 		printf("Usage: so_long.c map.ber\n");
@@ -45,7 +45,8 @@ int main(int ac, char **av)
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
 		printf("error, can't open the map\n");
-	get_next_line(fd, buf);	
+	get_next_line(fd, &line);
+	printf("%s", line);
 	t_env	env;
 
 	env.params.mlx = mlx_init();
@@ -54,8 +55,7 @@ int main(int ac, char **av)
 	env.img.addr = mlx_get_data_addr(env.img.img, &env.img.bits_per_pixel, &env.img.line_length, &env.img.endian);
 	mlx_hook(env.params.mlx_win, 2, 1L<<0,  keypress, &env.params);
 	mlx_hook(env.params.mlx_win, 33, 1L<<17, quit_program, &env.params);
-	my_mlx_pixel_put(&(env.img), 125, 125, create_trgb(180, 200, 120, 130));
-	/*draw_carre(&env);*/
-	mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.img.img, 0, 0);
+	/*draw_carre(&env);
+	mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.img.img, 0, 0);*/
 	mlx_loop(env.params.mlx);
 }
