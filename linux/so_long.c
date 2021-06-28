@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/28 19:30:05 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 00:51:41 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int main(int ac, char **av)
 {
 	int fd;
 	char *line;
+	int i = -1;
+	int j = 0;
 	line = NULL;
 	if (ac != 2)
 	{
@@ -46,7 +48,18 @@ int main(int ac, char **av)
 	if (fd < 0)
 		printf("error, can't open the map\n");
 	get_next_line(fd, &line);
-	printf("%s", line);
+	while (line[++i] != '\0')
+	{
+		if (line[i] != '1')
+			printf("Error, open map");
+	}
+	get_next_line(fd, &line);
+	if ((line[0] != '1') || (line[ft_strlen(line) - 1] != '1'))
+		printf("Erreur, map ouverte");
+	j++;
+
+	printf("%i\n", i);
+	
 	t_env	env;
 
 	env.params.mlx = mlx_init();
