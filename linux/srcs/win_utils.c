@@ -6,13 +6,13 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 15:41:28 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/25 16:47:34 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:46:50 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	quit_program(t_params *params)
+int	quit_program(t_params *params)
 {
 	write(1, "Goodbye!", 7);
 	mlx_destroy_window(params->mlx, params->mlx_win);

@@ -6,7 +6,7 @@
 #    By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 13:40:58 by ddecourt          #+#    #+#              #
-#    Updated: 2021/06/25 18:35:57 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/06/28 16:49:06 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ lib_cmd:
 			make -C minilibx
 
 SRCS	= so_long.c \
-		  #srcs/mlx_utils.c \
+		  srcs/mlx_utils.c \
 		  srcs/win_utils.c \
 
 CC		= clang
@@ -33,7 +33,7 @@ OBJS	= ${SRCS:.c=.o}
 	$(CC) $(CFLAGS) -Imlx_linux -O3 -c $< -o $@ 
 
 $(NAME): $(OBJS)
-		$(CC) $(CFLAGS) -I includes *.c -L ./minilibx/ -L./libft/ -lft -lmlx -lXext -lX11 -lm -o ${NAME}
+		$(CC) $(CFLAGS) $(OBJS) -I -L./minilibx/ -L./libft/ -lft -lmlx -lXext -lX11 -lm -o ${NAME}
 
 all:	${NAME}
 
