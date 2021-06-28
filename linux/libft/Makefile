@@ -6,7 +6,7 @@
 #    By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:15:04 by ddecourt          #+#    #+#              #
-#    Updated: 2021/06/25 17:15:23 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/06/28 18:49:26 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS	= ft_bzero.c \
 	  ft_atoi.c \
 	  ft_calloc.c \
 	  ft_strdup.c \
+	  ft_strndup.c \
 	  ft_substr.c \
 	  ft_strjoin.c \
 	  ft_strtrim.c \
@@ -56,6 +57,7 @@ SRCS	= ft_bzero.c \
 	  ft_lstclear.c \
 	  ft_lstiter.c \
 	  ft_lstmap.c \
+	  get_next_line.c \
 
 OBJS	= ${SRCS:.c=.o}
 

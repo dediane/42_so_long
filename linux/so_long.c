@@ -6,18 +6,11 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/28 16:51:11 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/28 18:53:09 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-/*int	create_trgb(int t, int r, int g, int b)
-{
-	return (t << 24 | r << 16 | g << 8 | b);
-}*/
-
-
 
 /*void	draw_carre(struct s_env *env)
 {
@@ -39,8 +32,20 @@
 	}
 }*/
 
-int main(void)
+int main(int ac, char **av)
 {
+	int fd;
+	char **buf;
+	buf = NULL;
+	if (ac != 2)
+	{
+		printf("Usage: so_long.c map.ber\n");
+		return(-1);
+	}
+	fd = open(av[1], O_RDONLY);
+	if (fd < 0)
+		printf("error, can't open the map\n");
+	get_next_line(fd, buf);	
 	t_env	env;
 
 	env.params.mlx = mlx_init();

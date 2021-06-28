@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 16:38:22 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/28 16:48:53 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/28 18:28:51 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <mlx.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <fcntl.h>
 #include "libft/libft.h"
 #include "inc/params.h"
 #include "inc/keybinds.h"
