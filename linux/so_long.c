@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 00:51:41 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 14:51:46 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,12 @@ int main(int ac, char **av)
 		if (line[i] != '1')
 			printf("Error, open map");
 	}
-	get_next_line(fd, &line);
-	if ((line[0] != '1') || (line[ft_strlen(line) - 1] != '1'))
-		printf("Erreur, map ouverte");
-	j++;
-
+	while (get_next_line(fd, &line) > 0)
+	{
+		if ((line[0] != '1') || (line[ft_strlen(line) - 1] != '1'))
+			printf("Erreur, map ouverte");
+		j++;
+	}
 	printf("%i\n", i);
 	
 	t_env	env;
