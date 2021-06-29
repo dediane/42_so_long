@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 19:50:43 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/28 18:52:06 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 21:52:41 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static int	check(char **tmp_buffer, char **line)
 	char	*ptr;
 	char	*tmp;
 
-	if ((ptr = ft_strchr(*tmp_buffer, '\n')))
+	ptr = ft_strchr(*tmp_buffer, '\n');
+	if (ptr)
 	{
 		*line = ft_strndup(*tmp_buffer, ptr - *tmp_buffer);
 		tmp = ft_strndup(ptr + 1, ft_strlen(ptr + 1));
@@ -51,7 +52,7 @@ static int	check(char **tmp_buffer, char **line)
 	}
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	int			bytes_read;
 	static char	*tmp_buffer[10240];
@@ -59,12 +60,15 @@ int			get_next_line(int fd, char **line)
 
 	if (fd < 0 || fd >= 10240 || BUFFER_SIZE <= 0 || line == NULL)
 		return (-1);
-	if (!(buf = malloc(sizeof(char) * (BUFFER_SIZE + 1))))
+	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		if (!(buf))
 		return (-1);
-	while ((bytes_read = read(fd, buf, BUFFER_SIZE)) >= 0)
+	bytes_read = read(fd, buf, BUFFER_SIZE);
+	while (bytes_read >= 0)
 	{
 		if (get_line(&tmp_buffer[fd], buf, bytes_read) || bytes_read <= 0)
 			break ;
+		bytes_read = read(fd, buf, BUFFER_SIZE);
 	}
 	free(buf);
 	if (bytes_read < 0)
