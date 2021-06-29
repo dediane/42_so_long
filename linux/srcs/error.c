@@ -6,11 +6,17 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:18:10 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 20:17:08 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 21:18:40 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+void	usage_error(void)
+{
+	ft_putstr("Error\nUsage: so_long.c [map.ber]\n");
+	exit(2);
+}
 
 int	map_error(int error)
 {
@@ -36,3 +42,5 @@ int	map_error(int error)
 	}
 	return (0);
 }
+
+

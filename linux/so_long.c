@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 19:46:40 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 21:25:58 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ void	draw_carre(struct s_env *env)
 	mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.img.img, 0, 0);
 	return(1);
 }*/
+void check_before_init(int ac, char **av)
+{
+	if (ac != 2)
+		usage_error();
+	if (!(check_file_extension(av[1])))
+		map_error(1);
+}
 
 int main(int ac, char **av)
 {
@@ -47,13 +54,7 @@ int main(int ac, char **av)
 
 	t_env	env;
 	ppi = 64;
-	if (ac != 2)
-	{
-		ft_putstr("Usage: so_long.c map.ber\n");
-		return(-1);
-	}
-	if (!(check_file_extension(av[1])))
-		map_error(1);
+	check_before_init(ac, av);
 	height = get_nb_of_line(av[1]);
 	if (height == 0)
 		printf("Erreur map \n");
