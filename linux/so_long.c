@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 17:44:31 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 18:08:51 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ int main(int ac, char **av)
 {
 	int	width;
 	int height;
+	int ppi;
 
+	ppi = 64;
 	if (ac != 2)
 	{
 		printf("Usage: so_long.c map.ber\n");
@@ -55,8 +57,8 @@ int main(int ac, char **av)
 	
 	t_env	env;
 	env.params.mlx = mlx_init();
-	env.params.mlx_win = mlx_new_window(env.params.mlx, 800, 650, "So Long Game");
-	env.img.img = mlx_new_image(env.params.mlx, 800, 650);
+	env.params.mlx_win = mlx_new_window(env.params.mlx, width * ppi, height * ppi, "So Long Game");
+	env.img.img = mlx_new_image(env.params.mlx, width * ppi, height * ppi);
 	env.img.addr = mlx_get_data_addr(env.img.img, &env.img.bits_per_pixel, &env.img.line_length, &env.img.endian);
 	mlx_hook(env.params.mlx_win, 2, 1L<<0,  keypress, &env.params);
 	mlx_hook(env.params.mlx_win, 33, 1L<<17, quit_program, &env.params);
