@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:51:47 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 19:36:53 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 20:18:11 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,32 +52,20 @@ int	check_map(char *map)
 	i = -1;
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
-	{
-		printf("Error, can't open map file\n");
-		return (0);
-	}
+		map_error(2);
 	get_next_line(fd, &line);
 	while (line[++i] != '\0')
 	{
 		if (line[i] != '1')
-		{
-			printf("Error, map open on line 1\n");
-			return (0);
-		}
+			map_error(3);
 	}
 	while (get_next_line(fd, &line) > 0)
 	{
 		j = ft_strlen(line);
 		if (j != i)
-		{
-			printf("Map de taille inegale\n");
-			return (0);
-		}
+			map_error(4);	
 		if ((line[0] != '1') || (line[ft_strlen(line) - 1] != '1'))
-		{
-			printf("Error, map open on the sides\n");
-			return (0);
-		}
+			map_error(3);	
 	}
 	return (i);
 }

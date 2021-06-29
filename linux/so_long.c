@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 19:37:09 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 19:46:40 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int main(int ac, char **av)
 		return(-1);
 	}
 	if (!(check_file_extension(av[1])))
-		map_error(2);
+		map_error(1);
 	height = get_nb_of_line(av[1]);
 	if (height == 0)
 		printf("Erreur map \n");
