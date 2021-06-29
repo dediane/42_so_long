@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 16:39:25 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 17:34:37 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	draw_carre(struct s_env *env)
 int main(int ac, char **av)
 {
 	int	width;
+	int height;
+
 	if (ac != 2)
 	{
 		printf("Usage: so_long.c map.ber\n");
@@ -43,9 +45,13 @@ int main(int ac, char **av)
 	width = check_map(av[1]);
 	if (width == 0)
 		printf("Erreur map \n");
+	height = get_nb_of_line(av[1]);
+	if (height == 0)
+		printf("Erreur map \n");
+	printf("Valeur de width = %i\n", width);
+	printf("Valeur de height = %i\n", height);
 	
 	t_env	env;
-
 	env.params.mlx = mlx_init();
 	env.params.mlx_win = mlx_new_window(env.params.mlx, 800, 650, "So Long Game");
 	env.img.img = mlx_new_image(env.params.mlx, 800, 650);

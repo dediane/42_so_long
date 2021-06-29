@@ -6,13 +6,14 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 16:11:44 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 16:13:09 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 17:32:40 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECK_MAP_H
 # define CHECK_MAP_H
 
+int	get_nb_of_line(char *map);
 int	check_map(char *map);
 
 #endif 

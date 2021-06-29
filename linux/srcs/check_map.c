@@ -6,11 +6,29 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:51:47 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 16:48:02 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 17:29:43 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+int get_nb_of_line(char *map)
+{
+	int fd;
+	char *line;
+	int j;
+	
+	line = NULL;
+	j = 0;
+	fd = open(map, O_RDONLY);
+	if (fd < 0)
+		return (0);
+	while (get_next_line(fd, &line) > 0)
+	{
+		j++;
+	}
+	return (j);
+}
 
 int	check_map(char *map)
 {
