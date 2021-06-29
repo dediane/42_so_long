@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 14:51:46 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 16:39:25 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,32 +34,15 @@ void	draw_carre(struct s_env *env)
 
 int main(int ac, char **av)
 {
-	int fd;
-	char *line;
-	int i = -1;
-	int j = 0;
-	line = NULL;
+	int	width;
 	if (ac != 2)
 	{
 		printf("Usage: so_long.c map.ber\n");
 		return(-1);
 	}
-	fd = open(av[1], O_RDONLY);
-	if (fd < 0)
-		printf("error, can't open the map\n");
-	get_next_line(fd, &line);
-	while (line[++i] != '\0')
-	{
-		if (line[i] != '1')
-			printf("Error, open map");
-	}
-	while (get_next_line(fd, &line) > 0)
-	{
-		if ((line[0] != '1') || (line[ft_strlen(line) - 1] != '1'))
-			printf("Erreur, map ouverte");
-		j++;
-	}
-	printf("%i\n", i);
+	width = check_map(av[1]);
+	if (width == 0)
+		printf("Erreur map \n");
 	
 	t_env	env;
 

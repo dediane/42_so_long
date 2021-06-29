@@ -6,7 +6,7 @@
 #    By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 13:40:58 by ddecourt          #+#    #+#              #
-#    Updated: 2021/06/28 16:49:06 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/06/29 16:13:40 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ lib_cmd:
 SRCS	= so_long.c \
 		  srcs/mlx_utils.c \
 		  srcs/win_utils.c \
+		  srcs/check_map.c \
 
 CC		= clang
 
