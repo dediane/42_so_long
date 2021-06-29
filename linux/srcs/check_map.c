@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:51:47 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 16:41:58 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 16:48:02 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	check_map(char *map)
 {
-	int fd;
-	char *line;
-	int i;
-	int j;
-	
+	int		fd;
+	char	*line;
+	int		i;
+	int		j;
+
 	line = NULL;
 	i = -1;
 	fd = open(map, O_RDONLY);

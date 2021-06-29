@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 15:36:17 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/28 16:46:37 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 16:48:53 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	create_trgb(int t, int r, int g, int b)
 
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
-	char *dst;
+	char	*dst;
 
 	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }

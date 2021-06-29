@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 15:41:28 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/28 16:46:50 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 16:50:38 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	keypress(int key, t_params *params)
 		quit_program(params);
 	if (key == UP || key == ARROW_UP)
 		printf("UP\n");
-	if (key == DOWN || key ==ARROW_DOWN)
+	if (key == DOWN || key == ARROW_DOWN)
 		printf("DOWN\n");
 	if (key == LEFT || key == ARROW_LEFT)
 		printf("LEFT\n");
@@ -35,4 +35,3 @@ int	keypress(int key, t_params *params)
 		printf("SPACE\n");
 	return (0);
 }
-
