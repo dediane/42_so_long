@@ -6,11 +6,22 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:51:47 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 17:29:43 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 17:52:30 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+int	check_file_extension(char *map)
+{
+	int size;
+
+	size = ft_strlen(map);
+	if (map[size - 4] != '.' || map[size - 3] != 'b'|| 
+	map[size - 2] != 'e' || map[size -1] != 'r')
+		return (0);
+	return(1);
+}
 
 int get_nb_of_line(char *map)
 {

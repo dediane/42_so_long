@@ -6,7 +6,7 @@
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 17:34:37 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/29 17:44:31 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int main(int ac, char **av)
 		printf("Usage: so_long.c map.ber\n");
 		return(-1);
 	}
+	if (!(check_file_extension(av[1])))
+		printf("Erreur, mauvaise extension de fichier.");
 	width = check_map(av[1]);
 	if (width == 0)
 		printf("Erreur map \n");
