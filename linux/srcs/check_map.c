@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:51:47 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 21:26:02 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/30 14:17:24 by ddecourt@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int get_nb_of_line(char *map)
 	{
 		j++;
 	}
+	close(fd);
 	return (j);
 }
 
@@ -62,10 +63,25 @@ int	check_map(char *map)
 	while (get_next_line(fd, &line) > 0)
 	{
 		j = ft_strlen(line);
-		if (j != i)
+		if (j != i || i == 0)
 			map_error(4);	
 		if ((line[0] != '1') || (line[ft_strlen(line) - 1] != '1'))
 			map_error(3);	
 	}
+	close(fd);
 	return (i);
+}
+
+int	store_map(char **map, int width, int height, char* file)
+{
+	int fd;
+
+	map = malloc((sizeof(char*) * height) + (sizeof(char) * height * width));
+	if (!(map))
+		return (-1);
+	fd = open(file, O_RDONLY);
+	while (get_next_line(fd, &map))
+	get_next_line(fd, map);
+	printf("map array -> %s\n", map[0]);
+	return (0);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 21:25:58 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/06/30 14:16:14 by ddecourt@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	draw_carre(struct s_env *env)
+/*void	draw_carre(struct s_env *env)
 {
 	int		i;
 	int		j;
@@ -30,7 +30,7 @@ void	draw_carre(struct s_env *env)
 			j++;
 		}
 	}
-}
+}*/
 
 /*int		fonction1(t_env *env)
 {
@@ -53,16 +53,16 @@ int main(int ac, char **av)
 	int ppi;
 
 	t_env	env;
-	ppi = 64;
+
 	check_before_init(ac, av);
 	height = get_nb_of_line(av[1]);
-	if (height == 0)
-		printf("Erreur map \n");
 	width = check_map(av[1]);
-	if (width == 0)
-		printf("Erreur map \n");
+	store_map(env.map, width, height, av[1]);
 
 	env.params.mlx = mlx_init();
+	mlx_get_screen_size(env.params.mlx, &env.img.width, &env.img.height);
+	env.img.width = env.img.width / 1.5;
+	ppi = env.img.width / width;
 	env.params.mlx_win = mlx_new_window(env.params.mlx, width * ppi, height * ppi, "So Long Game");
 	env.img.img = mlx_new_image(env.params.mlx, width * ppi, height * ppi);
 	env.img.addr = mlx_get_data_addr(env.img.img, &env.img.bits_per_pixel, &env.img.line_length, &env.img.endian);
