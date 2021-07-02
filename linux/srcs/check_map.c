@@ -6,7 +6,7 @@
 /*   By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:51:47 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/07/01 12:29:05 by ddecourt@st      ###   ########.fr       */
+/*   Updated: 2021/07/01 19:01:15 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,31 @@ int	check_map(char *map)
 	return (i);
 }
 
-int	store_map(char **map, int width, int height, char* file)
+char	**store_map(char **map, int width, int height, char* file)
 {
 	int fd;
 	int i = 0;
 
 	map = malloc((sizeof(char*) * height) + (sizeof(char) * height * width));
 	if (!(map))
-		return (-1);
+		return (NULL);
 	fd = open(file, O_RDONLY);
 	while (get_next_line(fd, &map[i]) > 0)
 		printf("map array -> %s\n", map[i++]);
-	return (0);
+	return (map);
+}
+
+int	check_last_line(char **map, int height)
+{
+	int i;
+
+	i = -1;
+	height -= 1;
+	printf("Last line : %s\n", map[height]);
+	while(map[height][++i])
+	{
+		if (map[height][i] != '1')
+			return(0);
+	}
+	return(1);
 }

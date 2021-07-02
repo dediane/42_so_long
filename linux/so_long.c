@@ -6,7 +6,7 @@
 /*   By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/30 14:16:14 by ddecourt@st      ###   ########.fr       */
+/*   Updated: 2021/07/01 19:00:11 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,23 @@ int main(int ac, char **av)
 	check_before_init(ac, av);
 	height = get_nb_of_line(av[1]);
 	width = check_map(av[1]);
-	store_map(env.map, width, height, av[1]);
+	env.map = store_map(env.map, width, height, av[1]);
+	int i = -1;
+	int j = -1;
+	while (env.map[++i])
+	{
+		while (env.map[i][++j])
+		{
+			printf("%c", env.map[i][j]);
+		}
+		j = -1;
+		printf("\n");
+	}
+	if (!(check_last_line(env.map, height)))
+	{
+		free(env.map);
+		map_error(3);
+	}
 
 	env.params.mlx = mlx_init();
 	mlx_get_screen_size(env.params.mlx, &env.img.width, &env.img.height);
