@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   params.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 16:36:58 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 19:16:58 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/07/02 11:49:33 by ddecourt@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_img
 typedef	struct	s_env
 {
 	char		**map;
+	int			height;
+	int			width;
 	t_params	params;
 	t_img		img;
 	t_img		collect;
