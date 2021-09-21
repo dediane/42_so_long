@@ -6,7 +6,7 @@
 /*   By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/09/21 20:05:30 by ddecourt@st      ###   ########.fr       */
+/*   Updated: 2021/09/21 23:25:05 by ddecourt@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 			j++;
 		}
 	}
-}
+}*/
 
 
 void	draw_carre(struct s_env *env)
@@ -62,7 +62,7 @@ int		fonction1(t_env *env)
 
 	mlx_put_image_to_window(env->params.mlx, env->params.mlx_win, env->img.img, 0, 0);
 	return(1);
-}*/
+}
 
 void check_before_init(int ac, char **av)
 {
@@ -96,12 +96,12 @@ int main(int ac, char **av)
 	mlx_hook(env.params.mlx_win, 2, 1L<<0,  keypress, &env.params);
 	mlx_hook(env.params.mlx_win, 33, 1L<<17, quit_program, &env.params);
 
-	/*mlx_loop_hook(env.params.mlx, fonction1, &env);
+	mlx_loop_hook(env.params.mlx, fonction1, &env);
 	draw_carre(&env);
 	mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.img.img, 0, 0);
-	char *relative_path = "./textures/snowfloor.xpm";
-	env.floor.img = mlx_xpm_file_to_image(env.params.mlx_win, relative_path, &env.floor.width ,&env.floor.height );
-	mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.floor.img, 0, 0);*/
+	//char *relative_path = "./textures/snowfloor.xpm";
+	//env.floor.img = mlx_xpm_file_to_image(env.params.mlx_win, relative_path, &env.floor.width ,&env.floor.height );
+	//mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.floor.img, 0, 0);
 
 	
 	mlx_loop(env.params.mlx);

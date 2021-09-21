@@ -6,7 +6,7 @@
 #    By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 13:40:58 by ddecourt          #+#    #+#              #
-#    Updated: 2021/09/21 19:57:26 by ddecourt@st      ###   ########.fr        #
+#    Updated: 2021/09/21 22:38:05 by ddecourt@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS	= so_long.c \
 
 CC		= clang
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -g -Wall -Wextra -Werror
 
 NAME	= so_long
 
