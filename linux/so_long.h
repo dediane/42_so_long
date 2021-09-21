@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 16:38:22 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/06/29 18:39:49 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/09/14 18:59:54 by ddecourt@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <errno.h>
+# include "minilibx/mlx.h"
 # include "libft/libft.h"
 # include "inc/params.h"
 # include "inc/keybinds.h"

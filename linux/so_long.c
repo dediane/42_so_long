@@ -6,13 +6,13 @@
 /*   By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:55:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/07/02 14:56:42 by ddecourt@st      ###   ########.fr       */
+/*   Updated: 2021/09/21 20:05:30 by ddecourt@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	draw_carre_texture(struct s_env *env, char *path)
+/*void	draw_carre_texture(struct s_env *env, char *path)
 {
 	int		i;
 	int		j;
@@ -21,7 +21,7 @@ void	draw_carre_texture(struct s_env *env, char *path)
 	env->floor.img = mlx_xpm_file_to_image(env->params.mlx, path, &(env->floor.width), &(env->floor.height));
 	if(env->floor.img)
 		mlx_get_data_addr(env->floor.img, &(env->floor.bits_per_pixel), &(env->floor.line_length), &(env->floor.endian));	
-	/*color = create_trgb(150, 120, 145, 160);
+	color = create_trgb(150, 120, 145, 160);
 	i = -1;
 	j = 0;
 	while(++i < 250)
@@ -33,11 +33,11 @@ void	draw_carre_texture(struct s_env *env, char *path)
 			my_mlx_pixel_put(&(env->img), 125 + j, 125 + i, color);
 			j++;
 		}
-	}*/
+	}
 }
 
 
-/*void	draw_carre(struct s_env *env)
+void	draw_carre(struct s_env *env)
 {
 	int		i;
 	int		j;
@@ -55,14 +55,15 @@ void	draw_carre_texture(struct s_env *env, char *path)
 			j++;
 		}
 	}
-}*/
+}
 
-/*int		fonction1(t_env *env)
+int		fonction1(t_env *env)
 {
 
-	mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.img.img, 0, 0);
+	mlx_put_image_to_window(env->params.mlx, env->params.mlx_win, env->img.img, 0, 0);
 	return(1);
 }*/
+
 void check_before_init(int ac, char **av)
 {
 	if (ac != 2)
@@ -74,7 +75,6 @@ void check_before_init(int ac, char **av)
 int main(int ac, char **av)
 {
 	int ppi;
-
 	t_env	env;
 
 	check_before_init(ac, av);
@@ -86,7 +86,6 @@ int main(int ac, char **av)
 		free(env.map);
 		map_error(3);
 	}
-
 	env.params.mlx = mlx_init();
 	mlx_get_screen_size(env.params.mlx, &env.img.width, &env.img.height);
 	env.img.width = env.img.width / 1.5;
@@ -97,14 +96,12 @@ int main(int ac, char **av)
 	mlx_hook(env.params.mlx_win, 2, 1L<<0,  keypress, &env.params);
 	mlx_hook(env.params.mlx_win, 33, 1L<<17, quit_program, &env.params);
 
-
-
-/*	mlx_loop_hook(env.params.mlx, fonction1, &env);*/
-	/*draw_carre(&env);
-	mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.img.img, 0, 0);*/
+	/*mlx_loop_hook(env.params.mlx, fonction1, &env);
+	draw_carre(&env);
+	mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.img.img, 0, 0);
 	char *relative_path = "./textures/snowfloor.xpm";
 	env.floor.img = mlx_xpm_file_to_image(env.params.mlx_win, relative_path, &env.floor.width ,&env.floor.height );
-	mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.floor.img, 0, 0);
+	mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.floor.img, 0, 0);*/
 
 	
 	mlx_loop(env.params.mlx);
