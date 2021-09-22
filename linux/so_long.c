@@ -96,7 +96,7 @@ int main(int ac, char **av)
 	mlx_hook(env.params.mlx_win, 33, 1L<<17, quit_program, &env.params);
 
 	mlx_loop_hook(env.params.mlx, fonction1, &env);
-	draw_one_square(&env, 0, 0);
+	draw_map(&env);
 	//draw_map(&env);
 	//draw_carre(&env);
 	//mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.img.img, 0, 0);
