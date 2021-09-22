@@ -82,7 +82,10 @@ char	**store_map(char **map, int width, int height, char* file)
 		return (NULL);
 	fd = open(file, O_RDONLY);
 	while (get_next_line(fd, &map[i]) > 0)
-		printf("map array -> %s\n", map[i++]);
+	{
+		i++;
+		//printf("map array -> %s\n", map[i]);
+	}
 	return (map);
 }
 
@@ -92,7 +95,7 @@ int	check_last_line(char **map, int height)
 
 	i = -1;
 	height -= 1;
-	printf("Last line : %s\n", map[height]);
+	//printf("Last line : %s\n", map[height]);
 	while(map[height][++i])
 	{
 		if (map[height][i] != '1')
