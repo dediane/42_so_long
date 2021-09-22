@@ -59,7 +59,6 @@
 
 int		fonction1(t_env *env)
 {
-
 	mlx_put_image_to_window(env->params.mlx, env->params.mlx_win, env->img.img, 0, 0);
 	return(1);
 }
@@ -74,7 +73,7 @@ void check_before_init(int ac, char **av)
 
 int main(int ac, char **av)
 {
-	int ppi;
+	//int ppi;
 	t_env	env;
 
 	check_before_init(ac, av);
@@ -89,14 +88,15 @@ int main(int ac, char **av)
 	env.params.mlx = mlx_init();
 	mlx_get_screen_size(env.params.mlx, &env.img.width, &env.img.height);
 	env.img.width = env.img.width / 1.5;
-	ppi = env.img.width / env.width;
-	env.params.mlx_win = mlx_new_window(env.params.mlx, env.width * ppi, env.height * ppi, "So Long Game");
-	env.img.img = mlx_new_image(env.params.mlx, env.width * ppi, env.height * ppi);
+	env.ppi = env.img.width / env.width;
+	env.params.mlx_win = mlx_new_window(env.params.mlx, env.width * env.ppi, env.height * env.ppi, "So Long Game");
+	env.img.img = mlx_new_image(env.params.mlx, env.width * env.ppi, env.height * env.ppi);
 	env.img.addr = mlx_get_data_addr(env.img.img, &env.img.bits_per_pixel, &env.img.line_length, &env.img.endian);
 	mlx_hook(env.params.mlx_win, 2, 1L<<0,  keypress, &env.params);
 	mlx_hook(env.params.mlx_win, 33, 1L<<17, quit_program, &env.params);
 
 	mlx_loop_hook(env.params.mlx, fonction1, &env);
+	draw_one_square(&env, 0, 0);
 	//draw_map(&env);
 	//draw_carre(&env);
 	//mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.img.img, 0, 0);

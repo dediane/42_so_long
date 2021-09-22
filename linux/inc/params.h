@@ -35,6 +35,7 @@ typedef	struct	s_env
 	char		**map;
 	int			height;
 	int			width;
+	int			ppi;
 	t_params	params;
 	t_img		img;
 	t_img		collect;

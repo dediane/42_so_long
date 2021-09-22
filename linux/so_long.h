@@ -25,5 +25,6 @@
 # include "inc/win_utils.h"
 # include "inc/check_map.h"
 # include "inc/error.h"
+# include "inc/draw.h"
 
 #endif

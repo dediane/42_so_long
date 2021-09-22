@@ -15,6 +15,7 @@ SRCS	= so_long.c \
 		  srcs/win_utils.c \
 		  srcs/check_map.c \
 		  srcs/error.c \
+		  srcs/draw.c \
 
 OBJS	= ${SRCS:.c=.o}
 
