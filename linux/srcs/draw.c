@@ -12,105 +12,48 @@
 
 #include "../so_long.h"
 
-/*int   draw_map(t_env *env)
+int	draw_one_square(t_env *env, int x, int y, int color)
 {
-	int i;
-	int j;
-	int width;
-	int height;
-	int color;
-
-	i = -1;
-	j = -1;
-	width = 0;
-	height = 0;
-	while (env->map[++i])
-	{
-		printf("---Taille de i = %i ---\n", i);		
-		while (env->map[i][++j])
-		{
-			printf("---Taille de j = %i ---\n", j);
-			if (env->map[i][j] == '1')
-			{
-				draw_one_square(env, height, width, color);
-				color = create_trgb(1, 113, 204, 212);
-			}
-			if (env->map[i][j] == '0')
-			{
-				color = create_trgb(1, 238, 246, 247);
-				draw_one_square(env, height, width, color);
-			}
-			printf("---Taille de width = %i ---\n", width);
-			width += env->ppi;
-		}
-		j = -1;
-		height += env->ppi;
-		width = 0;
-	}
-	return(0);
-    // largeur en pixel -> env.img.width
-    // hauteur en pixel -> env.img.height
-
-    //largeur de ma maps -> env.width
-    // hauteur de ma maps -> env.height
-
-
-}*/
-
-int draw_one_square(t_env *env, int x, int y, int color)
-{
-	int tmp;
-	int tmpY;
+	int	tmp;
+	int	tmpY;
 
 	tmp = 0;
 	tmpY = 0;
-	printf("i have been here\n");
-    while (tmpY < env->ppi)
-    {
+	while (tmpY < env->ppi)
+	{
 		tmp = 0;
-        while (tmp < env->ppi)
-        {
-            my_mlx_pixel_put(&(env->img), x + tmp, y + tmpY, color);
+		while (tmp < env->ppi)
+		{
+			my_mlx_pixel_put(&(env->img), x + tmp, y + tmpY, color);
 			tmp++;
-        }
+		}
 		tmpY++;
-    }
-    return (0);
+	}
+	return (0);
 }
 
-int	draw_map(t_env *env)
+int	draw_map(t_env *env, int countX, int countY)
 {
-	int i;
-	int j;
-	int countX;
-	int countY;
+	int	i;
+	int	j;
 
-	countX = 0;
-	countY = 0;
 	i = -1;
 	j = -1;
-
 	while (env->map[++i])
 	{
 		countX = 0;
 		while (env->map[i][++j])
 		{
 			if (env->map[i][j] == '1')
-			{
-				draw_one_square(env, (countX * env->ppi), (countY * env->ppi), create_trgb(1, 213, 74, 72));
-			}
+				draw_one_square(env, (countX * env->ppi), \
+				(countY * env->ppi), create_trgb(1, 213, 74, 72));
 			else
-			{
-				draw_one_square(env, (countX * env->ppi), (countY * env->ppi), create_trgb(1, 220, 170, 150));
-			}
+				draw_one_square(env, (countX * env->ppi), \
+				(countY * env->ppi), create_trgb(1, 220, 170, 150));
 			countX++;
 		}
 		j = -1;
 		countY++;
-
 	}
-
-	//draw_one_square(env, color);
-
-	return(0);
+	return (0);
 }
