@@ -10,34 +10,44 @@
 #                                                                              #
 # **************************************************************************** #
 
-lib_cmd:
-			make -C libft
-			make -C minilibx
-
 SRCS	= so_long.c \
 		  srcs/mlx_utils.c \
 		  srcs/win_utils.c \
 		  srcs/check_map.c \
 		  srcs/error.c \
 
+OBJS	= ${SRCS:.c=.o}
+
+NAME	= so_long
+
+HEADER	= mlx/mlx.h 
+
 CC		= clang
 
 CFLAGS	= -g -Wall -Wextra -Werror
 
-NAME	= so_long
+RM = rm -f
 
-HEADER	= minilibx/mlx.h 
-
-OBJS	= ${SRCS:.c=.o}
-
-
-%.o: %.c
-	$(CC) $(CFLAGS) -Imlx_linux -O3 -c $< -o $@ 
+.c .o:
+	$(CC) $(CFLAGS) -Imlx -Lmlx -lmlx -O3 -c $< -o $@ 
 
 $(NAME): $(OBJS)
-		$(CC) $(CFLAGS) $(OBJS) -I -L./minilibx/ -L./libft/ -lft -lmlx -lXext -lX11 -lm -o ${NAME}
+		make -C libft
+		make -C mlx
+		$(CC) $(CFLAGS) $(OBJS)  -Imlx -Lmlx -lmlx -I -L./libft/ -Imlx -lXext -lX11 -lm ./libft/libft.a -o ${NAME}
 
 all:	${NAME}
 
 clean:
+		make clean -C libft
+		make clean -C mlx
 		${RM} ${OBJS}
+
+fclean: clean	
+		make fclean -C libft
+		make fclean -C mlx
+		${RM} ${NAME}
+
+re:		fclean all
+
+.PHONY: all clean fclean re

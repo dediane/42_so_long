@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <errno.h>
-# include "minilibx/mlx.h"
+# include "mlx/mlx.h"
 # include "libft/libft.h"
 # include "inc/params.h"
 # include "inc/keybinds.h"
