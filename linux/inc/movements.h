@@ -14,6 +14,7 @@
 # define MOVEMENTS_H
 
 int	is_wall(char c);
-int check_exit(t_env *env);
+int	check_exit(t_env *env);
+int	check_collectible(t_env *env);
 
 #endif

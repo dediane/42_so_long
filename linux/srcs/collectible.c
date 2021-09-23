@@ -19,7 +19,6 @@ int	get_collectible_number(t_env *env)
 
 	x = -1;
 	y = -1;
-	env->collect.max_units = 0;
 	while (env->map[++y])
 	{
 		while (env->map[y][++x])
