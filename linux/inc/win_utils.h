@@ -13,7 +13,7 @@
 #ifndef WIN_UTILS_H
 # define WIN_UTILS_H
 
-int	quit_program(t_params *params);
-int	keypress(int key, t_params *params);
+int	quit_program(t_env *env);
+int	keypress(int key, t_env *env);
 
 #endif

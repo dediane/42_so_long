@@ -81,8 +81,8 @@ int	main(int ac, char **av)
 	check_before_init(ac, av);
 	init_game(&env, av[1]);
 
-	mlx_hook(env.params.mlx_win, 2, 1L<<0,  keypress, &env.params);
-	mlx_hook(env.params.mlx_win, 33, 1L<<17, quit_program, &env.params);
+	mlx_hook(env.params.mlx_win, 2, 1L<<0,  keypress, &env);
+	mlx_hook(env.params.mlx_win, 33, 1L<<17, quit_program, &env);
 
 	mlx_loop_hook(env.params.mlx, show_image, &env);
 	draw_map(&env, 0, 0);

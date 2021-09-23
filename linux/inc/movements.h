@@ -13,7 +13,6 @@
 #ifndef MOVEMENTS_H
 # define MOVEMENTS_H
 
-char	find_where_to_move(t_env *env, char direction);
 int	is_wall(char c);
 
 #endif
