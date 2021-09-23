@@ -27,5 +27,6 @@
 # include "inc/error.h"
 # include "inc/draw.h"
 # include "inc/player.h"
+# include "inc/collectible.h"
 
 #endif

@@ -36,6 +36,18 @@ typedef struct s_player
 	int	posY;
 }			t_player;
 
+typedef struct s_collect
+{
+	int max_units;
+	int player_units;
+}			t_collect;
+
+typedef struct s_exit
+{
+	int	posX;
+	int posY;
+}			t_exit;
+
 typedef struct s_env
 {
 	char		**map;
@@ -45,10 +57,8 @@ typedef struct s_env
 	t_params	params;
 	t_img		img;
 	t_player	player;
-	t_img		collect;
-	t_img		wall;
-	t_img		floor;
-	t_img		exit;
+	t_collect	collect;
+	t_exit		exit;
 }				t_env;
 
 #endif

@@ -37,27 +37,7 @@
 }*/
 
 
-/*void	draw_carre(struct s_env *env)
-{
-	int		i;
-	int		j;
-	int		color;
-
-	color = create_trgb(150, 120, 145, 160);
-	i = -1;
-	j = 0;
-	while(++i < 250)
-	{
-		j = 0;
-		while(j < 250)
-		{
-			my_mlx_pixel_put(&(env->img), 125 + j, 125 + i, color);
-			j++;
-		}
-	}
-}*/
-
-int		fonction1(t_env *env)
+int		show_image(t_env *env)
 {
 	mlx_put_image_to_window(env->params.mlx, env->params.mlx_win, env->img.img, 0, 0);
 	return(1);
@@ -71,20 +51,29 @@ void check_before_init(int ac, char **av)
 		map_error(1);
 }
 
+int	init_game(t_env *env, char *s)
+{
+	env->height = get_nb_of_line(s);
+	env->width = check_map(s);
+	env->map = store_map(env->map, env->width, env->height, s);
+	if (!(check_last_line(env->map, env->height)))
+	{
+		free(env->map);
+		map_error(3);
+	}
+	return (0);
+}
+
 int main(int ac, char **av)
 {
-	//int ppi;
 	t_env	env;
 
 	check_before_init(ac, av);
-	env.height = get_nb_of_line(av[1]);
-	env.width = check_map(av[1]);
-	env.map = store_map(env.map, env.width, env.height, av[1]);
-	if (!(check_last_line(env.map, env.height)))
-	{
-		free(env.map);
-		map_error(3);
-	}
+	init_game(&env, av[1]);
+	//env.height = get_nb_of_line(av[1]);
+	//env.width = check_map(av[1]);
+	//env.map = store_map(env.map, env.width, env.height, av[1]);
+
 	env.params.mlx = mlx_init();
 	mlx_get_screen_size(env.params.mlx, &env.img.width, &env.img.height);
 	env.img.width = env.img.width / 1.5;
@@ -95,15 +84,16 @@ int main(int ac, char **av)
 	mlx_hook(env.params.mlx_win, 2, 1L<<0,  keypress, &env.params);
 	mlx_hook(env.params.mlx_win, 33, 1L<<17, quit_program, &env.params);
 
-	mlx_loop_hook(env.params.mlx, fonction1, &env);
+	mlx_loop_hook(env.params.mlx, show_image, &env);
 	draw_map(&env, 0, 0);
-	//draw_map(&env);
+	
+	mlx_loop(env.params.mlx);
+}
+
+
+//draw_map(&env);
 	//draw_carre(&env);
 	//mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.img.img, 0, 0);
 	//char *relative_path = "./textures/snowfloor.xpm";
 	//env.floor.img = mlx_xpm_file_to_image(env.params.mlx_win, relative_path, &env.floor.width ,&env.floor.height );
 	//mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.floor.img, 0, 0);
-
-	
-	mlx_loop(env.params.mlx);
-}
