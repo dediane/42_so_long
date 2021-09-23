@@ -38,7 +38,7 @@ int	get_player_position(t_env *env)
 
 int	move_player_up(t_env *env)
 {
-	char new_pos;
+	char	new_pos;
 
 	new_pos = env->map[env->player.posY - 1][env->player.posX];
 	if (!is_wall(new_pos))
@@ -50,13 +50,13 @@ int	move_player_up(t_env *env)
 		(env->player.posY * env->ppi), create_trgb(1, 50, 50, 50));
 	}
 	else
-		return(1);
+		return (1);
 	return (0);
 }
 
 int	move_player_down(t_env *env)
 {
-	char new_pos;
+	char	new_pos;
 
 	new_pos = env->map[env->player.posY + 1][env->player.posX];
 	if (!is_wall(new_pos))
@@ -68,13 +68,13 @@ int	move_player_down(t_env *env)
 		(env->player.posY * env->ppi), create_trgb(1, 50, 50, 50));
 	}
 	else
-		return(1);
+		return (1);
 	return (0);
 }
 
 int	move_player_east(t_env *env)
 {
-	char new_pos;
+	char	new_pos;
 
 	new_pos = env->map[env->player.posY][env->player.posX - 1];
 	if (!is_wall(new_pos))
@@ -86,13 +86,13 @@ int	move_player_east(t_env *env)
 		(env->player.posY * env->ppi), create_trgb(1, 50, 50, 50));
 	}
 	else
-		return(1);
+		return (1);
 	return (0);
 }
 
 int	move_player_west(t_env *env)
 {
-	char new_pos;
+	char	new_pos;
 
 	new_pos = env->map[env->player.posY][env->player.posX + 1];
 	if (!is_wall(new_pos))
@@ -104,6 +104,6 @@ int	move_player_west(t_env *env)
 		(env->player.posY * env->ppi), create_trgb(1, 50, 50, 50));
 	}
 	else
-		return(1);
+		return (1);
 	return (0);
 }

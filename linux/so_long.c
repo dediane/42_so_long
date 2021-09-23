@@ -54,7 +54,7 @@ void check_before_init(int ac, char **av)
 int	init_game(t_env *env, char *s)
 {
 	env->height = get_nb_of_line(s);
-	env->width = check_map(s);
+	env->width = check_map(s, -1, 0);
 	env->map = store_map(env->map, env->width, env->height, s);
 	if (!(check_last_line(env->map, env->height)))
 	{

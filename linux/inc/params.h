@@ -38,14 +38,14 @@ typedef struct s_player
 
 typedef struct s_collect
 {
-	int max_units;
-	int player_units;
+	int	max_units;
+	int	player_units;
 }			t_collect;
 
 typedef struct s_exit
 {
 	int	posX;
-	int posY;
+	int	posY;
 }			t_exit;
 
 typedef struct s_env

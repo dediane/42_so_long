@@ -42,15 +42,12 @@ int	get_nb_of_line(char *map)
 	return (j);
 }
 
-int	check_map(char *map)
+int	check_map(char *map, int i, int j)
 {
 	int		fd;
 	char	*line;
-	int		i;
-	int		j;
 
 	line = NULL;
-	i = -1;
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
 		map_error(2);
