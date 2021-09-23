@@ -98,6 +98,5 @@ int	check_last_line(char **map, int height)
 		if (map[height][i] != '1')
 			return (0);
 	}
-
 	return (1);
 }
