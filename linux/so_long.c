@@ -83,11 +83,8 @@ int	main(int ac, char **av)
 
 	mlx_hook(env.params.mlx_win, 2, 1L<<0,  keypress, &env);
 	mlx_hook(env.params.mlx_win, 33, 1L<<17, quit_program, &env);
-
 	mlx_loop_hook(env.params.mlx, show_image, &env);
-	draw_map(&env, 0, 0);
-	
-	
+	play_game(&env);
 	mlx_loop(env.params.mlx);
 }
 

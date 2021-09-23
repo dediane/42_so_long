@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements.h                                        :+:      :+:    :+:   */
+/*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/23 16:07:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/09/23 16:07:42 by ddecourt         ###   ########.fr       */
+/*   Created: 2021/09/23 18:03:45 by ddecourt          #+#    #+#             */
+/*   Updated: 2021/09/23 18:03:47 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MOVEMENTS_H
-# define MOVEMENTS_H
+#include "../so_long.h"
 
-int	is_wall(char c);
-int check_exit(t_env *env);
-
-#endif
+int	play_game(t_env *env)
+{
+	draw_map(env, 0, 0);
+	get_player_position(env);
+	get_collectible_number(env);
+	get_exit_position(env);
+	return (0);
+}

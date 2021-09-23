@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements.h                                        :+:      :+:    :+:   */
+/*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/23 16:07:36 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/09/23 16:07:42 by ddecourt         ###   ########.fr       */
+/*   Created: 2021/09/23 18:05:28 by ddecourt          #+#    #+#             */
+/*   Updated: 2021/09/23 18:05:33 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MOVEMENTS_H
-# define MOVEMENTS_H
+#ifndef GAME_H
+# define GAME_H
 
-int	is_wall(char c);
-int check_exit(t_env *env);
+int	play_game(t_env *env);
 
 #endif

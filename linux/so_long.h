@@ -29,5 +29,6 @@
 # include "inc/player.h"
 # include "inc/collectible.h"
 # include "inc/movements.h"
+# include "inc/game.h"
 
 #endif

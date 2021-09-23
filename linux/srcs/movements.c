@@ -18,3 +18,31 @@ int	is_wall(char c)
 		return (1);
 	return (0);
 }
+
+int check_exit(t_env *env)
+{
+	char pos;
+
+	pos = env->map[env->player.posY][env->player.posX];
+	if (pos == 'E')
+	{
+		if (env->collect.max_units == env->collect.player_units)
+		{
+			quit_program(env);
+			return (1);
+		}
+		draw_one_square(env, (env->player.posX * env->ppi), \
+		(env->player.posY * env->ppi), create_trgb(1, 25, 250, 150));
+		return (1);
+
+	}
+	return (0);
+}
+
+/*int	check_collectible(t_env *env)
+{
+	char pos;
+
+	pos = env->map[env->player.posY][env->player.posX];
+	if (pos == 'C')
+}*/

@@ -55,8 +55,5 @@ int	draw_map(t_env *env, int countX, int countY)
 		x = -1;
 		countY++;
 	}
-	get_player_position(env);
-	get_collectible_number(env);
-	get_exit_position(env);
 	return (0);
 }

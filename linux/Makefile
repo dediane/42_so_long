@@ -6,7 +6,7 @@
 #    By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 13:40:58 by ddecourt          #+#    #+#              #
-#    Updated: 2021/09/23 16:08:10 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/09/23 18:07:00 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS	= so_long.c \
 		  srcs/player.c \
 		  srcs/collectible.c \
 		  srcs/movements.c \
+		  srcs/game.c \
 
 OBJS	= ${SRCS:.c=.o}
 
