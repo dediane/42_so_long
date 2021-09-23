@@ -12,6 +12,31 @@
 
 #include "../so_long.h"
 
+
+
+int get_player_position(t_env *env)
+{
+	int x;
+	int y;
+
+	x = -1;
+	y = -1;
+	while  (env->map[++y])
+	{
+		while (env->map[y][++x])
+		{
+			if (env->map[y][x] == 'P')
+			{
+				env->player.posX = x;
+				env->player.posY = y;
+				draw_one_square(env, (x * env->ppi), (y * env->ppi), create_trgb(1, 50, 50, 50));
+			}
+		}
+		x = -1;
+	}
+	return(0);
+}
+
 int	draw_one_square(t_env *env, int x, int y, int color)
 {
 	int	tmp;
@@ -34,26 +59,33 @@ int	draw_one_square(t_env *env, int x, int y, int color)
 
 int	draw_map(t_env *env, int countX, int countY)
 {
-	int	i;
-	int	j;
+	int	y;
+	int	x;
 
-	i = -1;
-	j = -1;
-	while (env->map[++i])
+	y = -1;
+	x = -1;
+	while (env->map[++y])
 	{
 		countX = 0;
-		while (env->map[i][++j])
+		while (env->map[y][++x])
 		{
-			if (env->map[i][j] == '1')
+			if (env->map[y][x] == '1')
 				draw_one_square(env, (countX * env->ppi), \
-				(countY * env->ppi), create_trgb(1, 213, 74, 72));
+				(countY * env->ppi), create_trgb(1, 120, 200, 202));
 			else
 				draw_one_square(env, (countX * env->ppi), \
-				(countY * env->ppi), create_trgb(1, 220, 170, 150));
+				(countY * env->ppi), create_trgb(1, 210, 242, 244));
 			countX++;
 		}
-		j = -1;
+		x = -1;
 		countY++;
 	}
+	get_player_position(env);
 	return (0);
 }
+
+/*int	draw_player(t_env *env)
+{
+	
+}*/
+

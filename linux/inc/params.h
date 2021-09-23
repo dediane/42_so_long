@@ -30,6 +30,12 @@ typedef struct s_img
 	int		height;
 }			t_img;
 
+typedef struct s_player
+{
+	int	posX;
+	int	posY;
+}			t_player;
+
 typedef	struct	s_env
 {
 	char		**map;
@@ -38,6 +44,7 @@ typedef	struct	s_env
 	int			ppi;
 	t_params	params;
 	t_img		img;
+	t_player	player;
 	t_img		collect;
 	t_img		wall;
 	t_img		floor;
