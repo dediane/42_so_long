@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.h                                           :+:      :+:    :+:   */
+/*   movements.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/23 13:23:01 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/09/23 13:23:02 by ddecourt         ###   ########.fr       */
+/*   Created: 2021/09/23 16:07:36 by ddecourt          #+#    #+#             */
+/*   Updated: 2021/09/23 16:07:42 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLAYER_H
-# define PLAYER_H
+#ifndef MOVEMENTS_H
+# define MOVEMENTS_H
 
-int	get_player_position(t_env *env);
-int	move_player_up(t_env *env);
+char	find_where_to_move(t_env *env, char direction);
+int	is_wall(char c);
 
 #endif

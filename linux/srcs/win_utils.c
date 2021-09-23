@@ -24,7 +24,10 @@ int	keypress(int key, t_params *params)
 	if (key == ESC)
 		quit_program(params);
 	if (key == UP || key == ARROW_UP)
+	{
+		//move_player_up();
 		printf("UP\n");
+	}
 	if (key == DOWN || key == ARROW_DOWN)
 		printf("DOWN\n");
 	if (key == LEFT || key == ARROW_LEFT)

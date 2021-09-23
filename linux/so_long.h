@@ -28,5 +28,6 @@
 # include "inc/draw.h"
 # include "inc/player.h"
 # include "inc/collectible.h"
+# include "inc/movements.h"
 
 #endif

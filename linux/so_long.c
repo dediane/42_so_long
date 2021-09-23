@@ -61,31 +61,32 @@ int	init_game(t_env *env, char *s)
 		free(env->map);
 		map_error(3);
 	}
+	env->params.mlx = mlx_init();
+	mlx_get_screen_size(env->params.mlx, &env->img.width, &env->img.height);
+	env->img.width = env->img.width / 1.5;
+	env->ppi = env->img.width / env->width;
+	env->params.mlx_win = mlx_new_window(env->params.mlx, \
+	env->width * env->ppi, env->height * env->ppi, "So Long Game");
+	env->img.img = mlx_new_image(env->params.mlx, env->width * env->ppi, \
+	env->height * env->ppi);
+	env->img.addr = mlx_get_data_addr(env->img.img, &env->img.bits_per_pixel, \
+	&env->img.line_length, &env->img.endian);
 	return (0);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_env	env;
 
 	check_before_init(ac, av);
 	init_game(&env, av[1]);
-	//env.height = get_nb_of_line(av[1]);
-	//env.width = check_map(av[1]);
-	//env.map = store_map(env.map, env.width, env.height, av[1]);
 
-	env.params.mlx = mlx_init();
-	mlx_get_screen_size(env.params.mlx, &env.img.width, &env.img.height);
-	env.img.width = env.img.width / 1.5;
-	env.ppi = env.img.width / env.width;
-	env.params.mlx_win = mlx_new_window(env.params.mlx, env.width * env.ppi, env.height * env.ppi, "So Long Game");
-	env.img.img = mlx_new_image(env.params.mlx, env.width * env.ppi, env.height * env.ppi);
-	env.img.addr = mlx_get_data_addr(env.img.img, &env.img.bits_per_pixel, &env.img.line_length, &env.img.endian);
 	mlx_hook(env.params.mlx_win, 2, 1L<<0,  keypress, &env.params);
 	mlx_hook(env.params.mlx_win, 33, 1L<<17, quit_program, &env.params);
 
 	mlx_loop_hook(env.params.mlx, show_image, &env);
 	draw_map(&env, 0, 0);
+	
 	
 	mlx_loop(env.params.mlx);
 }
