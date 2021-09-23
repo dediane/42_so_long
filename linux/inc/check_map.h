@@ -13,10 +13,10 @@
 #ifndef CHECK_MAP_H
 # define CHECK_MAP_H
 
-int	check_file_extension(char *map);
-int	get_nb_of_line(char *map);
-int	check_map(char *map);
-char **store_map(char **map, int width, int height, char* file);
-int	check_last_line(char **map, int height);
+int		check_file_extension(char *map);
+int		get_nb_of_line(char *map);
+int		check_map(char *map);
+char	**store_map(char **map, int width, int height, char *file);
+int		check_last_line(char **map, int height);
 
 #endif 

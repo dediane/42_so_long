@@ -14,6 +14,6 @@
 # define ERROR_H
 
 void	usage_error(void);
-int	map_error(int error);
+int		map_error(int error);
 
 #endif

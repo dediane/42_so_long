@@ -16,6 +16,7 @@ SRCS	= so_long.c \
 		  srcs/check_map.c \
 		  srcs/error.c \
 		  srcs/draw.c \
+		  srcs/player.c \
 
 OBJS	= ${SRCS:.c=.o}
 

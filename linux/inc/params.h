@@ -13,7 +13,7 @@
 #ifndef PARAMS_H
 # define PARAMS_H
 
-typedef	struct s_params
+typedef struct s_params
 {
 	void	*mlx;
 	void	*mlx_win;
@@ -36,7 +36,7 @@ typedef struct s_player
 	int	posY;
 }			t_player;
 
-typedef	struct	s_env
+typedef struct s_env
 {
 	char		**map;
 	int			height;
@@ -52,4 +52,3 @@ typedef	struct	s_env
 }				t_env;
 
 #endif
-

@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.h                                             :+:      :+:    :+:   */
+/*   player.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/23 13:45:02 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/09/23 13:45:04 by ddecourt         ###   ########.fr       */
+/*   Created: 2021/09/23 13:23:01 by ddecourt          #+#    #+#             */
+/*   Updated: 2021/09/23 13:23:02 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DRAW_H
-# define DRAW_H
+#ifndef PLAYER_H
+# define PLAYER_H
 
-int	draw_map(t_env *env, int countX, int countY);
-int	draw_one_square(t_env *env, int x, int y, int color);
+int	get_player_position(t_env *env);
 
 #endif

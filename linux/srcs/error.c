@@ -42,5 +42,3 @@ int	map_error(int error)
 	}
 	return (0);
 }
-
-
