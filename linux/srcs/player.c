@@ -50,9 +50,8 @@ int	move_player_up(t_env *env)
 		draw_one_square(env, (env->player.posX * env->ppi), \
 		(env->player.posY * env->ppi), create_trgb(1, 50, 50, 50));
 		check_collectible(env);
+		is_exit(new_pos, env);
 	}
-	else
-		return (1);
 	return (0);
 }
 
@@ -70,17 +69,18 @@ int	move_player_down(t_env *env)
 		draw_one_square(env, (env->player.posX * env->ppi), \
 		(env->player.posY * env->ppi), create_trgb(1, 50, 50, 50));
 		check_collectible(env);
+		is_exit(new_pos, env);
+
 	}
-	else
-		return (1);
 	return (0);
 }
 
-int	move_player_east(t_env *env)
+int	move_player_west(t_env *env)
 {
 	char	new_pos;
 
 	new_pos = env->map[env->player.posY][env->player.posX - 1];
+
 	if (!is_wall(new_pos))
 	{		
 		if (!check_exit(env))
@@ -90,13 +90,12 @@ int	move_player_east(t_env *env)
 		draw_one_square(env, (env->player.posX * env->ppi), \
 		(env->player.posY * env->ppi), create_trgb(1, 50, 50, 50));
 		check_collectible(env);
+		is_exit(new_pos, env);
 	}
-	else
-		return (1);
 	return (0);
 }
 
-int	move_player_west(t_env *env)
+int	move_player_east(t_env *env)
 {
 	char	new_pos;
 
@@ -110,8 +109,8 @@ int	move_player_west(t_env *env)
 		draw_one_square(env, (env->player.posX * env->ppi), \
 		(env->player.posY * env->ppi), create_trgb(1, 50, 50, 50));
 		check_collectible(env);
+		is_exit(new_pos, env);
+
 	}
-	else
-		return (1);
 	return (0);
 }

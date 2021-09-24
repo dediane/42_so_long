@@ -20,8 +20,8 @@
 # define ARROW_LEFT 0x004D
 # define ARROW_RIGHT 0x0050
 # define DOWN 0x0073
-# define LEFT 0x0064
-# define RIGHT 0x0061
+# define RIGHT 0x0064
+# define LEFT 0x0061
 # define SPACE 0x0020
 
 #endif

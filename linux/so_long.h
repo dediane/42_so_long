@@ -30,5 +30,7 @@
 # include "inc/collectible.h"
 # include "inc/movements.h"
 # include "inc/game.h"
+# include "inc/textures.h"
+# include "inc/parsing_map.h"
 
 #endif

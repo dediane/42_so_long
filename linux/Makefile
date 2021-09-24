@@ -20,6 +20,8 @@ SRCS	= so_long.c \
 		  srcs/collectible.c \
 		  srcs/movements.c \
 		  srcs/game.c \
+		  srcs/textures.c \
+		  srcs/parsing_map.c \
 
 OBJS	= ${SRCS:.c=.o}
 
