@@ -28,6 +28,7 @@ typedef struct s_img
 	int		endian;
 	int		width;
 	int		height;
+	int		ratio;
 }			t_img;
 
 typedef struct s_player

@@ -37,7 +37,7 @@
 int		show_image(t_env *env)
 {
 	mlx_put_image_to_window(env->params.mlx, env->params.mlx_win, env->img.img, 0, 0);
-	mlx_put_image_to_window(env->params.mlx, env->params.mlx_win, env->floor.img, 0, 0);
+	mlx_put_image_to_window(env->params.mlx, env->params.mlx_win, env->floor.img, env->ppi, env->ppi);
 	return(1);
 }
 
@@ -86,10 +86,3 @@ int	main(int ac, char **av)
 	mlx_loop_hook(env.params.mlx, show_image, &env);
 	mlx_loop(env.params.mlx);
 }
-
-
-//draw_map(&env);
-	//draw_carre(&env);
-	//char *relative_path = "./textures/snowfloor.xpm";
-	//env.floor.img = mlx_xpm_file_to_image(env.params.mlx_win, relative_path, &env.floor.width ,&env.floor.height );
-	//mlx_put_image_to_window(env.params.mlx, env.params.mlx_win, env.floor.img, 0, 0);
