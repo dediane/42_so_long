@@ -10,4 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef TEXTURES_H
+# define TEXTURES_H
 
+int	draw_floor(t_env *env);
+int	load_floor(t_env *env, char *path);
+
+#endif

@@ -21,7 +21,7 @@ int	is_wall(char c)
 
 int	check_exit(t_env *env)
 {
-	char current_pos;
+	char	current_pos;
 
 	current_pos = env->map[env->player.posY][env->player.posX];
 	if (current_pos == 'E')
@@ -50,7 +50,7 @@ int	check_collectible(t_env *env)
 	return (0);
 }
 
-int is_exit(char c, t_env *env)
+int	is_exit(char c, t_env *env)
 {
 	if (c == 'E')
 	{

@@ -16,6 +16,6 @@
 int	is_wall(char c);
 int	check_exit(t_env *env);
 int	check_collectible(t_env *env);
-int is_exit(char c, t_env *env);
+int	is_exit(char c, t_env *env);
 
 #endif

@@ -24,7 +24,7 @@ typedef struct s_img
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
-	int		line_length;
+	int		line_lenght;
 	int		endian;
 	int		width;
 	int		height;
@@ -32,14 +32,16 @@ typedef struct s_img
 
 typedef struct s_player
 {
-	int	posX;
-	int	posY;
+	int		posX;
+	int		posY;
+	t_img	img;
 }			t_player;
 
 typedef struct s_collect
 {
-	int	max_units;
-	int	player_units;
+	int		max_units;
+	int		player_units;
+	t_img	img;
 }			t_collect;
 
 typedef struct s_exit
@@ -58,6 +60,8 @@ typedef struct s_env
 	t_img		img;
 	t_player	player;
 	t_collect	collect;
+	t_img		floor;
+	t_img		wall;
 	t_exit		exit;
 }				t_env;
 

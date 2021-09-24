@@ -14,9 +14,11 @@
 
 int	play_game(t_env *env)
 {
-	draw_map(env, 0, 0);
-	get_player_position(env);
-	get_collectible_number(env);
-	get_exit_position(env);
+	//draw_map(env, 0, 0);
+	load_floor(env, "textures/snowfloor.xpm");
+	draw_floor(env);
+	//get_player_position(env);
+	//get_collectible_number(env);
+	//get_exit_position(env);
 	return (0);
 }
