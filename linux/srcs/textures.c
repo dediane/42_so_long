@@ -23,17 +23,6 @@ int	load_texture(t_env *env, t_img *img, char *path)
 	return (0);
 }
 
-int	load_wall(t_env *env, char *path)
-{
-	env->wall.img = mlx_xpm_file_to_image(env->params.mlx, path, \
-	&(env->wall.width), &(env->wall.height));
-	if (env->wall.img)
-		env->floor.addr = mlx_get_data_addr(env->floor.img, \
-		&(env->floor.bits_per_pixel), &(env->floor.line_lenght), \
-		&(env->floor.endian));
-	return (0);
-}
-
 int	draw_texture(t_env *env, int x1, int y1, t_img *img)
 {
 	unsigned int color;
@@ -53,8 +42,8 @@ int	draw_texture(t_env *env, int x1, int y1, t_img *img)
 		{
 			ratioX = ((x / (float)env->ppi) * img->height);
 			color = index_color((int)ratioX, (int)ratioY, img);
-			//color = env->floor.addr[env->floor.line_lenght * y] + x;
-			my_mlx_pixel_put(&(env->img), x + x1, y + y1, color);
+			if (color != 00)
+				my_mlx_pixel_put(&(env->img), x + x1, y + y1, color);
 		}
 		x = -1;
 	}

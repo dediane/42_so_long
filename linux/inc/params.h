@@ -63,6 +63,12 @@ typedef struct s_env
 	t_collect	collect;
 	t_img		floor;
 	t_img		wall;
+	t_img		player_front;
+	t_img		player_front2;
+	t_img		player_left;
+	t_img		player_right;
+	t_img		player_back;
+	t_img		collectible;
 	t_exit		exit;
 }				t_env;
 

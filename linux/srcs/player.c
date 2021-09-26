@@ -27,8 +27,7 @@ int	get_player_position(t_env *env)
 			{
 				env->player.posX = x;
 				env->player.posY = y;
-				draw_one_square(env, (x * env->ppi), (y * env->ppi), \
-				create_trgb(1, 50, 50, 50));
+				draw_texture(env, (x * env->ppi), (y * env->ppi), &(env->player_front));
 			}
 		}
 		x = -1;
@@ -44,11 +43,11 @@ int	move_player_up(t_env *env)
 	if (!is_wall(new_pos))
 	{
 		if (!check_exit(env))
-			draw_one_square(env, (env->player.posX * env->ppi), \
-			(env->player.posY * env->ppi), create_trgb(1, 210, 242, 244));
+			draw_texture(env, (env->player.posX * env->ppi), \
+			(env->player.posY * env->ppi), &(env->floor));
 		env->player.posY--;
-		draw_one_square(env, (env->player.posX * env->ppi), \
-		(env->player.posY * env->ppi), create_trgb(1, 50, 50, 50));
+		draw_texture(env, (env->player.posX * env->ppi), \
+		(env->player.posY * env->ppi), &(env->player_back));
 		check_collectible(env);
 		is_exit(new_pos, env);
 	}
@@ -63,11 +62,11 @@ int	move_player_down(t_env *env)
 	if (!is_wall(new_pos))
 	{	
 		if (!check_exit(env))
-			draw_one_square(env, (env->player.posX * env->ppi), \
-			(env->player.posY * env->ppi), create_trgb(1, 210, 242, 244));
+				draw_texture(env, (env->player.posX * env->ppi), \
+				(env->player.posY * env->ppi), &(env->floor));
 		env->player.posY++;
-		draw_one_square(env, (env->player.posX * env->ppi), \
-		(env->player.posY * env->ppi), create_trgb(1, 50, 50, 50));
+		draw_texture(env, (env->player.posX * env->ppi), \
+		(env->player.posY * env->ppi), &(env->player_front));
 		check_collectible(env);
 		is_exit(new_pos, env);
 	}
@@ -82,11 +81,11 @@ int	move_player_west(t_env *env)
 	if (!is_wall(new_pos))
 	{		
 		if (!check_exit(env))
-			draw_one_square(env, (env->player.posX * env->ppi), \
-			(env->player.posY * env->ppi), create_trgb(1, 210, 242, 244));
+			draw_texture(env, (env->player.posX * env->ppi), \
+			(env->player.posY * env->ppi), &(env->floor));
 		env->player.posX--;
-		draw_one_square(env, (env->player.posX * env->ppi), \
-		(env->player.posY * env->ppi), create_trgb(1, 50, 50, 50));
+		draw_texture(env, (env->player.posX * env->ppi), \
+		(env->player.posY * env->ppi), &(env->player_left));
 		check_collectible(env);
 		is_exit(new_pos, env);
 	}
@@ -101,11 +100,11 @@ int	move_player_east(t_env *env)
 	if (!is_wall(new_pos))
 	{
 		if (!check_exit(env))
-			draw_one_square(env, (env->player.posX * env->ppi), \
-			(env->player.posY * env->ppi), create_trgb(1, 210, 242, 244));
+			draw_texture(env, (env->player.posX * env->ppi), \
+			(env->player.posY * env->ppi), &(env->floor));
 		env->player.posX++;
-		draw_one_square(env, (env->player.posX * env->ppi), \
-		(env->player.posY * env->ppi), create_trgb(1, 50, 50, 50));
+		draw_texture(env, (env->player.posX * env->ppi), \
+		(env->player.posY * env->ppi), &(env->player_right));
 		check_collectible(env);
 		is_exit(new_pos, env);
 	}
