@@ -13,7 +13,7 @@
 #ifndef TEXTURES_H
 # define TEXTURES_H
 
-int	draw_floor(t_env *env);
-int	load_floor(t_env *env, char *path);
+int	draw_texture(t_env *env, int x1, int y1, t_img *img);
+int	load_texture(t_env *env, t_img *img, char *path);
 
 #endif

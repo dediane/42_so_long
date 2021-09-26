@@ -14,9 +14,9 @@
 
 int	play_game(t_env *env)
 {
+	load_texture(env, &(env->floor), "textures/snowfloor.xpm");
+	load_texture(env, &(env->wall), "textures/wall2.xpm");
 	draw_map(env, 0, 0);
-	load_floor(env, "textures/snowfloor.xpm");
-	draw_floor(env);
 	get_player_position(env);
 	get_collectible_number(env);
 	get_exit_position(env);

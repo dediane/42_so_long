@@ -37,7 +37,7 @@
 int		show_image(t_env *env)
 {
 	mlx_put_image_to_window(env->params.mlx, env->params.mlx_win, env->img.img, 0, 0);
-	mlx_put_image_to_window(env->params.mlx, env->params.mlx_win, env->floor.img, env->ppi, env->ppi);
+	//mlx_put_image_to_window(env->params.mlx, env->params.mlx_win, env->floor.img, 0, 0);
 	return(1);
 }
 
@@ -59,10 +59,15 @@ int	init_game(t_env *env, char *s)
 		free(env->map);
 		map_error(3);
 	}
+	/*if (check_sprites(env->map))
+	{
+		free(env->map);
+		map_error(1);
+	}*/
 	env->params.mlx = mlx_init();
 	mlx_get_screen_size(env->params.mlx, &env->img.width, &env->img.height);
 	env->img.width = env->img.width / 1.5;
-	env->ppi = env->img.width / env->width;
+	env->ppi = 64;
 	env->params.mlx_win = mlx_new_window(env->params.mlx, \
 	env->width * env->ppi, env->height * env->ppi, "So Long Game");
 	env->img.img = mlx_new_image(env->params.mlx, env->width * env->ppi, \

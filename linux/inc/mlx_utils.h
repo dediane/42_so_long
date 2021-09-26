@@ -13,8 +13,8 @@
 #ifndef MLX_UTILS_H
 # define MLX_UTILS_H
 
-int		create_trgb(int t, int r, int g, int b);
-void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
-int     index_color(int x, int y, t_img *img);
+int		        create_trgb(int t, int r, int g, int b);
+void        	my_mlx_pixel_put(t_img *img, int x, int y, int color);
+unsigned int    index_color(int x, int y, t_img *img);
 
 #endif

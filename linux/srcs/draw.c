@@ -45,11 +45,11 @@ int	draw_map(t_env *env, int countX, int countY)
 		while (env->map[y][++x])
 		{
 			if (env->map[y][x] == '1')
-				draw_one_square(env, (countX * env->ppi), \
-				(countY * env->ppi), create_trgb(1, 120, 200, 202));
+				draw_texture(env, (countX * env->ppi), \
+				(countY * env->ppi), &(env->wall));
 			else
-				draw_one_square(env, (countX * env->ppi), \
-				(countY * env->ppi), create_trgb(1, 210, 242, 244));
+				draw_texture(env, (countX * env->ppi), \
+				(countY * env->ppi), &(env->floor));
 			countX++;
 		}
 		x = -1;
