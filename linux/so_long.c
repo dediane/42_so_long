@@ -54,8 +54,7 @@ int	main(int ac, char **av)
 	t_env	env;
 
 	env.count = 0;
-	ac ++;
-	//check_before_init(ac, av);
+	check_before_init(ac, av);
 	init_game(&env, av[1]);
 	play_game(&env);
 	mlx_hook(env.params.mlx_win, 2, 1L<<0,  keypress, &env);

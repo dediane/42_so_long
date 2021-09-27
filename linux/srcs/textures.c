@@ -25,8 +25,8 @@ int	load_texture(t_env *env, t_img *img, char *path)
 
 int	destroy_texture(t_env *env, t_img *img)
 {
-	if (img)
-		mlx_destroy_image(env->params.mlx, img);
+	if (img != NULL)
+		mlx_destroy_image(env->params.mlx, img->img);
 	return (0);
 }
 
