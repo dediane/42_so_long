@@ -14,9 +14,6 @@
 # define PLAYER_H
 
 int	get_player_position(t_env *env);
-int	move_player_up(t_env *env);
-int	move_player_west(t_env *env);
-int	move_player_down(t_env *env);
-int	move_player_east(t_env *env);
+int	move_player(t_env *env, int x, int y);
 
 #endif

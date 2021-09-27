@@ -33,8 +33,6 @@ int	draw_texture(t_env *env, int x1, int y1, t_img *img)
 
 	x = -1;
 	y = -1;
-
-	//env->floor.line_lenght /= 4;
 	while (++y < env->ppi)
 	{
 		ratioY = ((y / (float)env->ppi) * img->width);
@@ -42,50 +40,10 @@ int	draw_texture(t_env *env, int x1, int y1, t_img *img)
 		{
 			ratioX = ((x / (float)env->ppi) * img->height);
 			color = index_color((int)ratioX, (int)ratioY, img);
-			if (color != 00)
+			if (color != 16777216)
 				my_mlx_pixel_put(&(env->img), x + x1, y + y1, color);
 		}
 		x = -1;
 	}
 	return (0);
 }
-	/*int color;
-	
-	}*/
-
-
-	/*float ratioX;
-	float ratioY;
-	int i;
-	int j;
-	int color;
-
-	ratioY = ((env->ppi / env->width) * env->floor.width);
-	ratioX = ((env->ppi / env->height) * env->floor.height);
-	
-	i = -1;
-	j = -1;
-	color = index_color(ratioX, ratioY, &(env->floor));
-	while(++i < (env->floor.height * (int)ratioY))
-	{
-		while(++j < (env->floor.width * (int)ratioX))
-		{
-			//my_mlx_pixel_put(&(env->img), j, i, color);
-			j++;
-		}
-		j = -1;
-	}*/
-	/*mlx_put_image_to_window(env->params.mlx, \
-	env->params.mlx_win, env->floor.img, \
-	env->floor.endian, env->floor.line_lenght);*/
-
-/*int *buffer = mlx_get_data_addr(image, &pixel_bits, &line_bytes, &endian);
-line_bytes /= 4;
-
-int color = 0xABCDEF;
-
-for(int y = 0; y < 360; ++y)
-for(int x = 0; x < 640; ++x)
-{
-    buffer[(y * line_bytes) + x] = color;
-}*/
