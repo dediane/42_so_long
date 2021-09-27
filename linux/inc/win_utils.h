@@ -15,5 +15,7 @@
 
 int	quit_program(t_env *env);
 int	keypress(int key, t_env *env);
+int	move_1(int key, t_env *env);
+int	move_2(int key, t_env *env);
 
 #endif

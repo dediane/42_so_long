@@ -79,8 +79,12 @@ char	**store_map(char **map, int width, int height, char *file)
 	if (!(map))
 		return (NULL);
 	fd = open(file, O_RDONLY);
+	map[i] = NULL;
 	while (get_next_line(fd, &map[i]) > 0)
+	{
 		i++;
+		map[i] = NULL;
+	}
 	close(fd);
 	return (map);
 }
