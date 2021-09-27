@@ -29,8 +29,6 @@ int	get_collectible_number(t_env *env)
 			{
 				draw_texture(env, (x * env->ppi), \
 				(y * env->ppi), &(env->collectible));
-				//draw_one_square(env, (x * env->ppi), (y * env->ppi), \
-				//create_trgb(1, 20, 150, 190));
 				env->collect.max_units++;
 			}
 		}

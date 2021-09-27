@@ -36,10 +36,6 @@ int	get_player_position(t_env *env)
 	return (0);
 }
 
-// Move NORTH -> x = 0 ; y = -1;
-// Move SOUTH -> x = 0 ; y = 1;
-// Move EAST -> x = -1; y = 0;
-// Move WEST -> x = 1 ; y = 0;
 int	move_player(t_env *env, t_img *img, int x, int y)
 {
 	char	new_pos;
