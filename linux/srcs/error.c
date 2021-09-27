@@ -20,7 +20,6 @@ void	usage_error(void)
 
 int	map_error(int error)
 {
-	
 	if (error == 1)
 	{
 		ft_putstr("Error\nWrong map file extension.\n");

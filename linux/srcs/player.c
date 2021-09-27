@@ -39,7 +39,7 @@ int	get_player_position(t_env *env)
 int	move_player(t_env *env, t_img *img, int x, int y)
 {
 	char	new_pos;
-	
+
 	new_pos = env->map[env->player.posY + y][env->player.posX + x];
 	if (!is_wall(new_pos))
 	{

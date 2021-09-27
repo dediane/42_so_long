@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../so_long.h"
 
-int load_enemy(t_env *env)
+int	load_enemy(t_env *env)
 {
-    load_texture(env, &(env->enemy_front), "textures/enemy-front.xpm");
+	load_texture(env, &(env->enemy_front), "textures/enemy-front.xpm");
 	load_texture(env, &(env->enemy_back), "textures/enemy-back.xpm");
 	return (0);
 }
@@ -44,17 +43,18 @@ int	get_enemy_position(t_env *env, t_object *enemy)
 	return (0);
 }
 
-int enemy_move(t_object *enemy, t_object *player, t_env *env, t_img *img)
+int	enemy_move(t_object *enemy, t_object *player, t_env *env, t_img *img)
 {
-	float i;
-	float j;
+	float	i;
+	float	j;
 
 	i = 0;
 	j = 0.25;
-	while ((enemy->posX != player->posX) && (enemy->posY != player->posY) && ((enemy->posY + 1) != '1'))
+	while ((enemy->posX != player->posX) && (enemy->posY != player->posY) \
+	&& ((enemy->posY + 1) != '1'))
 	{
-			draw_texture(env, enemy->posX, enemy->posY, img);
-			i += j;	
+		draw_texture(env, enemy->posX, enemy->posY, img);
+		i += j;
 	}
 	return (0);
 }

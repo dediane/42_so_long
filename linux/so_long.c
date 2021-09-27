@@ -15,7 +15,6 @@
 int		show_image(t_env *env)
 {
 	mlx_put_image_to_window(env->params.mlx, env->params.mlx_win, env->img.img, 0, 0);
-	//mlx_put_image_to_window(env->params.mlx, env->params.mlx_win, env->floor.img, 0, 0);
 	return(1);
 }
 
@@ -55,7 +54,8 @@ int	main(int ac, char **av)
 	t_env	env;
 
 	env.count = 0;
-	check_before_init(ac, av);
+	ac ++;
+	//check_before_init(ac, av);
 	init_game(&env, av[1]);
 	play_game(&env);
 	mlx_hook(env.params.mlx_win, 2, 1L<<0,  keypress, &env);

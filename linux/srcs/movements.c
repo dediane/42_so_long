@@ -26,13 +26,6 @@ int	check_exit(t_env *env)
 	current_pos = env->map[env->player.posY][env->player.posX];
 	if (current_pos == 'E')
 	{
-		//if (env->collect.max_units == env->collect.player_units)
-		//{
-		//	draw_one_square(env, (env->player.posX * env->ppi), \
-		//	(env->player.posY * env->ppi), create_trgb(1, 50, 50, 50));
-		//	quit_program(env);
-		//	return (1);
-		//}
 		draw_texture(env, (env->player.posX * env->ppi), \
 		(env->player.posY * env->ppi), &(env->floor));
 		draw_texture(env, (env->player.posX * env->ppi), \

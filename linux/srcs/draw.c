@@ -52,7 +52,6 @@ int	draw_map(t_env *env, int countX, int countY)
 		countY++;
 	}
 	return (0);
-	
 }
 
 int	draw_wall(t_env *env, int countX, int countY)

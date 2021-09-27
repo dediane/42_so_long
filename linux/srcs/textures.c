@@ -23,6 +23,13 @@ int	load_texture(t_env *env, t_img *img, char *path)
 	return (0);
 }
 
+int	destroy_texture(t_env *env, t_img *img)
+{
+	if (img)
+		mlx_destroy_image(env->params.mlx, img);
+	return (0);
+}
+
 int	draw_texture(t_env *env, int x1, int y1, t_img *img)
 {
 	unsigned int	color;

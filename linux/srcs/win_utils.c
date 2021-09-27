@@ -15,8 +15,11 @@
 int	quit_program(t_env *env)
 {
 	write(1, "Goodbye!", 7);
-	mlx_destroy_window(env->params.mlx, env->params.mlx_win);
 	ft_clear_tab(&env->map);
+	destroy_all_images(env);
+	mlx_destroy_image(env->params.mlx, env->img.img);
+	mlx_destroy_window(env->params.mlx, env->params.mlx_win);
+	mlx_destroy_display(env->params.mlx);
 	exit(1);
 }
 
