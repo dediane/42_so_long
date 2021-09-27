@@ -15,12 +15,12 @@
 int	quit_program(t_env *env)
 {
 	write(1, "Goodbye!", 7);
+	ft_clear_tab(&env->map);
 	if (&(env->floor) != NULL)
 		destroy_all_images(env);
 	mlx_destroy_image(env->params.mlx, env->img.img);
 	mlx_destroy_window(env->params.mlx, env->params.mlx_win);
 	mlx_destroy_display(env->params.mlx);
-	ft_clear_tab(&env->map);
 	exit(1);
 }
 
