@@ -1,20 +1,20 @@
 /* XPM */
-static char *cefb7a7c03ff420ee492a5cf6350086eZyFXjLqFBm0ZAs5f[] = {
+static char *_0cbbf1a83284966ce5ca65be9452487ExPqsCKhSOHo8xyt[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 13 1 ",
 "  c None",
-". c #031A1F",
-"X c #054147",
-"o c #107B6D",
+". c #132529",
+"X c #15454A",
+"o c #1D796D",
 "O c #5F5F5F",
-"+ c #9E5169",
-"@ c #E27B95",
-"# c #21B890",
-"$ c #A2A2A2",
-"% c #FFA6B3",
-"& c gray77",
-"* c #FECDD2",
-"= c #EAEAEA",
+"+ c #9C5369",
+"@ c #E07993",
+"# c #2BB68E",
+"$ c #A0A0A0",
+"% c #FFA3B0",
+"& c gray76",
+"* c #FECBD0",
+"= c gray91",
 /* pixels */
 "                                ",
 "                                ",

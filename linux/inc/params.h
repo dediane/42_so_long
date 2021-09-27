@@ -67,8 +67,11 @@ typedef struct s_env
 	t_img		player_front;
 	t_img		player_front2;
 	t_img		player_left;
+	t_img		player_left2;
 	t_img		player_right;
+	t_img		player_right2;
 	t_img		player_back;
+	t_img		player_back2;
 	t_img		collectible;
 	t_exit		exit;
 }				t_env;

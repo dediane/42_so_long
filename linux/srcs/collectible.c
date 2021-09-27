@@ -19,14 +19,18 @@ int	get_collectible_number(t_env *env)
 
 	x = -1;
 	y = -1;
+	env->collect.max_units = 0;
+	env->collect.player_units = 0;
 	while (env->map[++y])
 	{
 		while (env->map[y][++x])
 		{
 			if (env->map[y][x] == 'C')
 			{
-				draw_one_square(env, (x * env->ppi), (y * env->ppi), \
-				create_trgb(1, 20, 150, 190));
+				draw_texture(env, (x * env->ppi), \
+				(y * env->ppi), &(env->collectible));
+				//draw_one_square(env, (x * env->ppi), (y * env->ppi), \
+				//create_trgb(1, 20, 150, 190));
 				env->collect.max_units++;
 			}
 		}
