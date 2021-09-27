@@ -14,6 +14,6 @@
 # define PLAYER_H
 
 int	get_player_position(t_env *env);
-int	move_player(t_env *env, int x, int y);
+int	move_player(t_env *env, t_img *img, int x, int y);
 
 #endif

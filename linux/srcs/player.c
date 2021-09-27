@@ -27,7 +27,8 @@ int	get_player_position(t_env *env)
 			{
 				env->player.posX = x;
 				env->player.posY = y;
-				draw_texture(env, (x * env->ppi), (y * env->ppi), &(env->player_front));
+				draw_texture(env, (x * env->ppi), \
+				(y * env->ppi), &(env->player_left));
 			}
 		}
 		x = -1;
@@ -39,7 +40,7 @@ int	get_player_position(t_env *env)
 // Move SOUTH -> x = 0 ; y = 1;
 // Move EAST -> x = -1; y = 0;
 // Move WEST -> x = 1 ; y = 0;
-int	move_player(t_env *env, int x, int y)
+int	move_player(t_env *env, t_img *img, int x, int y)
 {
 	char	new_pos;
 
@@ -51,19 +52,8 @@ int	move_player(t_env *env, int x, int y)
 			(env->player.posY * env->ppi), &(env->floor));
 		env->player.posY += y;
 		env->player.posX += x;
-		if (y == -1)
-			draw_texture(env, (env->player.posX * env->ppi), \
-			(env->player.posY * env->ppi), &(env->player_back));
-		if (y == 1)
-			draw_texture(env, (env->player.posX * env->ppi), \
-			(env->player.posY * env->ppi), &(env->player_front));
-		if (x == 1)
-			draw_texture(env, (env->player.posX * env->ppi), \
-			(env->player.posY * env->ppi), &(env->player_right));
-		if (x == -1)
-			draw_texture(env, (env->player.posX * env->ppi), \
-			(env->player.posY * env->ppi), &(env->player_left));
-		check_collectible(env);
+		draw_texture(env, (env->player.posX * env->ppi), \
+		(env->player.posY * env->ppi), img);
 		is_exit(new_pos, env);
 	}
 	return (0);

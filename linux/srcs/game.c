@@ -16,8 +16,7 @@ int	play_game(t_env *env)
 {
 	load_texture(env, &(env->floor), "textures/snowfloor.xpm");
 	load_texture(env, &(env->wall), "textures/tree.xpm");
-	load_texture(env, &(env->player_front), "textures/princesse-front1.xpm");
-	load_texture(env, &(env->player_front2), "textures/princesse-front2.xpm");
+	load_texture(env, &(env->player_front), "textures/princesse-front.xpm");
 	load_texture(env, &(env->player_left), "textures/princesse-left1.xpm");
 	load_texture(env, &(env->player_right), "textures/princesse-right1.xpm");
 	load_texture(env, &(env->player_back), "textures/princesse-back1.xpm");

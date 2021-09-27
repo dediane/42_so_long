@@ -24,13 +24,13 @@ int	keypress(int key, t_env *env)
 	if (key == ESC)
 		quit_program(env);
 	if (key == UP || key == ARROW_UP)
-		move_player(env, 0, -1);
+		move_player(env, &(env->player_back), 0, -1);
 	if (key == DOWN || key == ARROW_DOWN)
-		move_player(env, 0, 1);
+		move_player(env, &(env->player_front), 0, 1);
 	if (key == LEFT || key == ARROW_LEFT)
-		move_player(env, -1, 0);
+		move_player(env, &(env->player_left), -1, 0);
 	if (key == RIGHT || key == ARROW_RIGHT)
-		move_player(env, 1, 0);
+		move_player(env, &(env->player_right), 1, 0);
 	env->count++;
 	printf("%i\n", env->count);
 	return (0);

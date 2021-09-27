@@ -25,11 +25,11 @@ int	load_texture(t_env *env, t_img *img, char *path)
 
 int	draw_texture(t_env *env, int x1, int y1, t_img *img)
 {
-	unsigned int color;
-	int x;
-	int y;
-	float ratioY;
-	float ratioX;
+	unsigned int	color;
+	int				x;
+	int				y;
+	float			ratioY;
+	float			ratioX;
 
 	x = -1;
 	y = -1;
