@@ -22,6 +22,7 @@ SRCS	= so_long.c \
 		  srcs/game.c \
 		  srcs/textures.c \
 		  srcs/parsing_map.c \
+		  srcs/enemy_bonus.c \
 
 OBJS	= ${SRCS:.c=.o}
 

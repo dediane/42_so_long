@@ -17,9 +17,10 @@ int load_enemy(t_env *env)
 {
     load_texture(env, &(env->enemy_front), "textures/enemy-front.xpm");
 	load_texture(env, &(env->enemy_back), "textures/enemy-back.xpm");
+	return (0);
 }
 
-int	get_enemy_position(t_env *env)
+int	get_enemy_position(t_env *env, t_object *enemy)
 {
 	int	x;
 	int	y;
@@ -34,6 +35,8 @@ int	get_enemy_position(t_env *env)
 			{
 				draw_texture(env, (x * env->ppi), \
 				(y * env->ppi), &(env->enemy_front));
+				enemy->posX = x;
+				enemy->posY = y;
 			}
 		}
 		x = -1;
@@ -41,3 +44,25 @@ int	get_enemy_position(t_env *env)
 	return (0);
 }
 
+int enemy_move(t_object *enemy, t_object *player, t_env *env, t_img *img)
+{
+	float i;
+	float j;
+
+	i = 0;
+	j = 0.25;
+	while ((enemy->posX != player->posX) && (enemy->posY != player->posY) && ((enemy->posY + 1) != '1'))
+	{
+			draw_texture(env, enemy->posX, enemy->posY, img);
+			i += j;	
+	}
+	return (0);
+}
+
+int	play_bonus(t_env *env)
+{
+	load_enemy(env);
+	get_enemy_position(env, &(env->enemy));
+	enemy_move(&(env->enemy), &(env->player), env, &(env->enemy_front));
+	return (0);
+}

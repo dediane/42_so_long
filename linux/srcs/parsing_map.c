@@ -59,7 +59,7 @@ int	check_valid_map_char(char **map)
 		{
 			if (map[i][j] != '0' && map[i][j] != '1' \
 			&& map[i][j] != 'P' && map[i][j] != 'C' && \
-			map[i][j] != 'E')
+			map[i][j] != 'E' && map[i][j] != 'Z')
 				return (1);
 		}
 		j = -1;

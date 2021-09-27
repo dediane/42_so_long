@@ -16,6 +16,7 @@ int	quit_program(t_env *env)
 {
 	write(1, "Goodbye!", 7);
 	mlx_destroy_window(env->params.mlx, env->params.mlx_win);
+	ft_clear_tab(&env->map);
 	exit(1);
 }
 

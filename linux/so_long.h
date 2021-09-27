@@ -32,5 +32,6 @@
 # include "inc/game.h"
 # include "inc/textures.h"
 # include "inc/parsing_map.h"
+# include "inc/enemy_bonus.h"
 
 #endif
