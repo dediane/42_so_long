@@ -32,15 +32,10 @@ int	init_game(t_env *env, char *s)
 	env->height = get_nb_of_line(s);
 	env->width = check_map(s, -1, 0);
 	env->map = store_map(env->map, env->width, env->height, s);
-	if (!(check_last_line(env->map, env->height)))
+	if (!(check_last_line(env->map, env->height)) && check_sprites(env->map))
 	{
-		free(env->map);
+		ft_clear_tab(&(env->map));
 		map_error(3);
-	}
-	if (check_sprites(env->map))
-	{
-		free(env->map);
-		map_error(1);
 	}
 	env->params.mlx = mlx_init();
 	mlx_get_screen_size(env->params.mlx, &env->img.width, &env->img.height);

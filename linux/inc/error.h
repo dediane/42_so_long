@@ -15,5 +15,6 @@
 
 void	usage_error(void);
 int		map_error(int error);
+void	ft_clear_tab(char ***s);
 
 #endif

@@ -20,6 +20,7 @@ void	usage_error(void)
 
 int	map_error(int error)
 {
+	
 	if (error == 1)
 	{
 		ft_putstr("Error\nWrong map file extension.\n");
@@ -30,15 +31,23 @@ int	map_error(int error)
 		ft_putstr("Error\nCannot open the map.\n");
 		exit(2);
 	}
-	if (error == 3)
+	if ((error == 3) || (error == 4))
 	{
-		ft_putstr("Error\nUnvalid map.\nThe map should be surrounded by walls\n");
-		exit(2);
-	}
-	if (error == 4)
-	{
-		ft_putstr("Error\nUnvalid map.\nMap should be rectangular\n");
+		ft_putstr("Error\nUnvalid map.\n");
 		exit(2);
 	}
 	return (0);
+}
+
+void	ft_clear_tab(char ***s)
+{
+	int	i;
+
+	i = 0;
+	while ((*s)[i])
+	{
+		free((*s)[i]);
+		i++;
+	}
+	free(*s);
 }

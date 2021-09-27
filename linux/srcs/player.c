@@ -52,8 +52,6 @@ int	move_player(t_env *env, t_img *img, int x, int y)
 		(env->player.posY * env->ppi), img);
 		check_collectible(env);
 		is_exit(new_pos, env);
-		 printf("collectible total: %i\n", env->collect.max_units);
-		 printf("collectible player: %i\n", env->collect.player_units);
 	}
 	return (0);
 }
