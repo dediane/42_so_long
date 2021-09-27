@@ -40,7 +40,7 @@ int	draw_texture(t_env *env, int x1, int y1, t_img *img)
 		{
 			ratioX = ((x / (float)env->ppi) * img->height);
 			color = index_color((int)ratioX, (int)ratioY, img);
-			if (color != 16777216)
+			if (color != 0xFF000000)
 				my_mlx_pixel_put(&(env->img), x + x1, y + y1, color);
 		}
 		x = -1;

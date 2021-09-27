@@ -44,12 +44,31 @@ int	draw_map(t_env *env, int countX, int countY)
 		countX = 0;
 		while (env->map[y][++x])
 		{
+			draw_texture(env, (countX * env->ppi), \
+			(countY * env->ppi), &(env->floor));
+			countX++;
+		}
+		x = -1;
+		countY++;
+	}
+	return (0);
+}
+
+int	draw_wall(t_env *env, int countX, int countY)
+{
+	int	y;
+	int	x;
+
+	y = -1;
+	x = -1;
+	while (env->map[++y])
+	{
+		countX = 0;
+		while (env->map[y][++x])
+		{
 			if (env->map[y][x] == '1')
 				draw_texture(env, (countX * env->ppi), \
 				(countY * env->ppi), &(env->wall));
-			else
-				draw_texture(env, (countX * env->ppi), \
-				(countY * env->ppi), &(env->floor));
 			countX++;
 		}
 		x = -1;

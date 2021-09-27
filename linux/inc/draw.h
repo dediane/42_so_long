@@ -15,5 +15,6 @@
 
 int	draw_map(t_env *env, int countX, int countY);
 int	draw_one_square(t_env *env, int x, int y, int color);
+int	draw_wall(t_env *env, int countX, int countY);
 
 #endif

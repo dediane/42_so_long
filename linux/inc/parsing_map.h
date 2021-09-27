@@ -13,8 +13,8 @@
 #ifndef PARSING_MAP_H
 # define PARSING_MAP_H
 
-int check_sprites(char **map);
-int check_unique_object(char **map, char c);
+int	check_sprites(char **map);
+int	check_unique_object(char **map, char c);
 int	check_valid_map_char(char **map);
 
 #endif

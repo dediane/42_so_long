@@ -12,28 +12,6 @@
 
 #include "so_long.h"
 
-/*void	draw_floor(t_env *env, char *path)
-{
-	int i;
-	int j;
-	
-	i = -1;
-	j = -1;
-	env->floor.img = mlx_xpm_file_to_image(env->params.mlx, path, &(env->floor.width), &(env->floor.height));
-	if(env->floor.img)
-		mlx_get_data_addr(env->floor.img, &(env->floor.bits_per_pixel), &(env->floor.line_lenght), &(env->floor.endian));
-	while(++i < env->height)
-	{
-		while(++j < env->width)
-		{
-			my_mlx_pixel_put(&(env->img), j, i, index_color( env->floor.width, env->floor.height, &(env->floor)));
-			j++;
-		}
-		j = -1;
-	}
-}*/
-
-
 int		show_image(t_env *env)
 {
 	mlx_put_image_to_window(env->params.mlx, env->params.mlx_win, env->img.img, 0, 0);
@@ -80,9 +58,8 @@ int	init_game(t_env *env, char *s)
 int	main(int ac, char **av)
 {
 	t_env	env;
-	char	*path;
 
-	path = "textures/snowfloor.xpm";
+	env.count = 0;
 	check_before_init(ac, av);
 	init_game(&env, av[1]);
 	play_game(&env);

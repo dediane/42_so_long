@@ -21,7 +21,6 @@ int	quit_program(t_env *env)
 
 int	keypress(int key, t_env *env)
 {
-
 	if (key == ESC)
 		quit_program(env);
 	if (key == UP || key == ARROW_UP)
@@ -32,6 +31,7 @@ int	keypress(int key, t_env *env)
 		move_player(env, -1, 0);
 	if (key == RIGHT || key == ARROW_RIGHT)
 		move_player(env, 1, 0);
-
+	env->count++;
+	printf("%i\n", env->count);
 	return (0);
 }

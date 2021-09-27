@@ -19,7 +19,8 @@ int	create_trgb(int t, int r, int g, int b)
 
 unsigned int	index_color(int x, int y, t_img *img)
 {
-	return *(unsigned int *)(img->addr + (y * img->line_lenght + x * (img->bits_per_pixel / 8)));
+	return (*(unsigned int *)(img->addr + \
+	(y * img->line_lenght + x * (img->bits_per_pixel / 8))));
 }
 
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)

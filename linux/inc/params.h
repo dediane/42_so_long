@@ -57,6 +57,7 @@ typedef struct s_env
 	int			height;
 	int			width;
 	int			ppi;
+	int			count;
 	t_params	params;
 	t_img		img;
 	t_player	player;
