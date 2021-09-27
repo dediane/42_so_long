@@ -33,8 +33,10 @@ int	check_exit(t_env *env)
 		//	quit_program(env);
 		//	return (1);
 		//}
-		draw_one_square(env, (env->player.posX * env->ppi), \
-		(env->player.posY * env->ppi), create_trgb(1, 25, 250, 150));
+		draw_texture(env, (env->player.posX * env->ppi), \
+		(env->player.posY * env->ppi), &(env->floor));
+		draw_texture(env, (env->player.posX * env->ppi), \
+		(env->player.posY * env->ppi), &(env->exit_img));
 		return (1);
 	}
 	return (0);

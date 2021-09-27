@@ -31,12 +31,12 @@ typedef struct s_img
 	int		ratio;
 }			t_img;
 
-typedef struct s_player
+typedef struct s_object
 {
 	int		posX;
 	int		posY;
 	t_img	img;
-}			t_player;
+}			t_object;
 
 typedef struct s_collect
 {
@@ -60,7 +60,8 @@ typedef struct s_env
 	int			count;
 	t_params	params;
 	t_img		img;
-	t_player	player;
+	t_object	player;
+	t_object	enemy;
 	t_collect	collect;
 	t_img		floor;
 	t_img		wall;
@@ -72,7 +73,10 @@ typedef struct s_env
 	t_img		player_right2;
 	t_img		player_back;
 	t_img		player_back2;
+	t_img		enemy_front;
+	t_img		enemy_back;
 	t_img		collectible;
+	t_img		exit_img;
 	t_exit		exit;
 }				t_env;
 

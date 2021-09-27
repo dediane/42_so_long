@@ -1,43 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collectible.c                                      :+:      :+:    :+:   */
+/*   enemy_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/23 13:54:21 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/09/23 13:54:23 by ddecourt         ###   ########.fr       */
+/*   Created: 2021/09/27 19:23:44 by ddecourt          #+#    #+#             */
+/*   Updated: 2021/09/27 19:23:46 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "../so_long.h"
 
-int	get_collectible_number(t_env *env)
+int load_enemy(t_env *env)
 {
-	int	x;
-	int	y;
-
-	x = -1;
-	y = -1;
-	env->collect.max_units = 0;
-	env->collect.player_units = 0;
-	while (env->map[++y])
-	{
-		while (env->map[y][++x])
-		{
-			if (env->map[y][x] == 'C')
-			{
-				draw_texture(env, (x * env->ppi), \
-				(y * env->ppi), &(env->collectible));
-				env->collect.max_units++;
-			}
-		}
-		x = -1;
-	}
-	return (0);
+    load_texture(env, &(env->enemy_front), "textures/enemy-front.xpm");
+	load_texture(env, &(env->enemy_back), "textures/enemy-back.xpm");
 }
 
-int	get_exit_position(t_env *env)
+int	get_enemy_position(t_env *env)
 {
 	int	x;
 	int	y;
@@ -48,13 +30,14 @@ int	get_exit_position(t_env *env)
 	{
 		while (env->map[y][++x])
 		{
-			if (env->map[y][x] == 'E')
+			if (env->map[y][x] == 'Z')
 			{
 				draw_texture(env, (x * env->ppi), \
-				(y * env->ppi), &(env->exit_img));
+				(y * env->ppi), &(env->enemy_front));
 			}
 		}
 		x = -1;
 	}
 	return (0);
 }
+
