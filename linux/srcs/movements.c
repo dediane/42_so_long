@@ -46,7 +46,10 @@ int	check_collectible(t_env *env)
 
 	pos = env->map[env->player.posY][env->player.posX];
 	if (pos == 'C')
+	{
 		env->collect.player_units++;
+		env->map[env->player.posY][env->player.posX] = '0';
+	}
 	return (0);
 }
 

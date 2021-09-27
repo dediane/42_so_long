@@ -43,7 +43,7 @@ int	get_player_position(t_env *env)
 int	move_player(t_env *env, t_img *img, int x, int y)
 {
 	char	new_pos;
-
+	
 	new_pos = env->map[env->player.posY + y][env->player.posX + x];
 	if (!is_wall(new_pos))
 	{
@@ -54,7 +54,10 @@ int	move_player(t_env *env, t_img *img, int x, int y)
 		env->player.posX += x;
 		draw_texture(env, (env->player.posX * env->ppi), \
 		(env->player.posY * env->ppi), img);
+		check_collectible(env);
 		is_exit(new_pos, env);
+		// printf("collectible total: %i\n", env->collect.max_units);
+		// printf("collectible player: %i\n", env->collect.player_units);
 	}
 	return (0);
 }
