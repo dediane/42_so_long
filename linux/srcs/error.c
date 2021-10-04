@@ -30,7 +30,7 @@ int	map_error(int error)
 		ft_putstr("Error\nCannot open the map.\n");
 		exit(2);
 	}
-	if ((error == 3) || (error == 4))
+	if (error == 3)
 	{
 		ft_putstr("Error\nUnvalid map.\n");
 		exit(2);

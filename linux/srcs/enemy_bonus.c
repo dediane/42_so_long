@@ -34,8 +34,8 @@ int	get_enemy_position(t_env *env, t_object *enemy)
 			{
 				draw_texture(env, (x * env->ppi), \
 				(y * env->ppi), &(env->enemy_front));
-				enemy->posX = x;
-				enemy->posY = y;
+				enemy->pos_x = x;
+				enemy->pos_y = y;
 			}
 		}
 		x = -1;
@@ -50,10 +50,10 @@ int	enemy_move(t_object *enemy, t_object *player, t_env *env, t_img *img)
 
 	i = 0;
 	j = 0.25;
-	while ((enemy->posX != player->posX) && (enemy->posY != player->posY) \
-	&& ((enemy->posY + 1) != '1'))
+	while ((enemy->pos_x != player->pos_x) && (enemy->pos_y != player->pos_y) \
+	&& ((enemy->pos_y + 1) != '1'))
 	{
-		draw_texture(env, enemy->posX, enemy->posY, img);
+		draw_texture(env, enemy->pos_x, enemy->pos_y, img);
 		i += j;
 	}
 	return (0);

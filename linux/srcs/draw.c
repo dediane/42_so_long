@@ -15,19 +15,19 @@
 int	draw_one_square(t_env *env, int x, int y, int color)
 {
 	int	tmp;
-	int	tmpY;
+	int	tmp_y;
 
 	tmp = 0;
-	tmpY = 0;
-	while (tmpY < env->ppi)
+	tmp_y = 0;
+	while (tmp_y < env->ppi)
 	{
 		tmp = 0;
 		while (tmp < env->ppi)
 		{
-			my_mlx_pixel_put(&(env->img), x + tmp, y + tmpY, color);
+			my_mlx_pixel_put(&(env->img), x + tmp, y + tmp_y, color);
 			tmp++;
 		}
-		tmpY++;
+		tmp_y++;
 	}
 	return (0);
 }

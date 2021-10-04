@@ -25,8 +25,8 @@ int	get_player_position(t_env *env)
 		{
 			if (env->map[y][x] == 'P')
 			{
-				env->player.posX = x;
-				env->player.posY = y;
+				env->player.pos_x = x;
+				env->player.pos_y = y;
 				draw_texture(env, (x * env->ppi), \
 				(y * env->ppi), &(env->player_left));
 			}
@@ -40,16 +40,16 @@ int	move_player(t_env *env, t_img *img, int x, int y)
 {
 	char	new_pos;
 
-	new_pos = env->map[env->player.posY + y][env->player.posX + x];
+	new_pos = env->map[env->player.pos_y + y][env->player.pos_x + x];
 	if (!is_wall(new_pos))
 	{
 		if (!check_exit(env))
-			draw_texture(env, (env->player.posX * env->ppi), \
-			(env->player.posY * env->ppi), &(env->floor));
-		env->player.posY += y;
-		env->player.posX += x;
-		draw_texture(env, (env->player.posX * env->ppi), \
-		(env->player.posY * env->ppi), img);
+			draw_texture(env, (env->player.pos_x * env->ppi), \
+			(env->player.pos_y * env->ppi), &(env->floor));
+		env->player.pos_y += y;
+		env->player.pos_x += x;
+		draw_texture(env, (env->player.pos_x * env->ppi), \
+		(env->player.pos_y * env->ppi), img);
 		check_collectible(env);
 		is_exit(new_pos, env);
 	}

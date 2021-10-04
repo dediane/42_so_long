@@ -35,18 +35,18 @@ int	draw_texture(t_env *env, int x1, int y1, t_img *img)
 	unsigned int	color;
 	int				x;
 	int				y;
-	float			ratioY;
-	float			ratioX;
+	float			ratio_y;
+	float			ratio_x;
 
 	x = -1;
 	y = -1;
 	while (++y < env->ppi)
 	{
-		ratioY = ((y / (float)env->ppi) * img->width);
+		ratio_y = ((y / (float)env->ppi) * img->width);
 		while (++x < env->ppi)
 		{
-			ratioX = ((x / (float)env->ppi) * img->height);
-			color = index_color((int)ratioX, (int)ratioY, img);
+			ratio_x = ((x / (float)env->ppi) * img->height);
+			color = index_color((int)ratio_x, (int)ratio_y, img);
 			if (color != 0xFF000000)
 				my_mlx_pixel_put(&(env->img), x + x1, y + y1, color);
 		}

@@ -62,15 +62,13 @@ int	check_map(char *map, int i, int j)
 	free(line);
 	while (get_next_line(fd, &line) > 0)
 	{
-		j = ft_strlen(line);
-		if (j != i || i == 0)
-			map_error(4);
-		if ((line[0] != '1') || (line[ft_strlen(line) - 1] != '1'))
-			map_error(3);
+		j = check_walls_side(line, ft_strlen(line), i);
 		free(line);
 	}
 	close(fd);
 	free(line);
+	if (j == 1)
+		map_error(3);
 	return (i);
 }
 

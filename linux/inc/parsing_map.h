@@ -16,5 +16,6 @@
 int	check_sprites(char **map);
 int	check_unique_object(char **map, char c);
 int	check_valid_map_char(char **map);
+int	check_walls_side(char *line, int size, int i);
 
 #endif

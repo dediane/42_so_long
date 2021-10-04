@@ -66,3 +66,12 @@ int	check_valid_map_char(char **map)
 	}
 	return (0);
 }
+
+int	check_walls_side(char *line, int size, int i)
+{
+	if ((size != i || i == 0) || ((line[0] != '1') || (line[size - 1] != '1')))
+	{	
+		return (1);
+	}
+	return (0);
+}

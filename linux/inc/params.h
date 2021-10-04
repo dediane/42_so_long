@@ -33,8 +33,8 @@ typedef struct s_img
 
 typedef struct s_object
 {
-	int		posX;
-	int		posY;
+	int		pos_x;
+	int		pos_y;
 	t_img	img;
 }			t_object;
 
@@ -47,8 +47,8 @@ typedef struct s_collect
 
 typedef struct s_exit
 {
-	int	posX;
-	int	posY;
+	int	pos_x;
+	int	pos_y;
 }			t_exit;
 
 typedef struct s_env
