@@ -21,7 +21,7 @@ int	get_collectible_number(t_env *env)
 	y = -1;
 	env->collect.max_units = 0;
 	env->collect.player_units = 0;
-	while (env->map[++y])
+	while (env->map[++y][0])
 	{
 		while (env->map[y][++x])
 		{
@@ -44,7 +44,7 @@ int	get_exit_position(t_env *env)
 
 	x = -1;
 	y = -1;
-	while (env->map[++y])
+	while (env->map[++y][0])
 	{
 		while (env->map[y][++x])
 		{

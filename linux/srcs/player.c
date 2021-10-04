@@ -19,7 +19,7 @@ int	get_player_position(t_env *env)
 
 	x = -1;
 	y = -1;
-	while (env->map[++y])
+	while (env->map[++y][0])
 	{
 		while (env->map[y][++x])
 		{

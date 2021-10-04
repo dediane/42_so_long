@@ -37,7 +37,9 @@ int	get_nb_of_line(char *map)
 	while (get_next_line(fd, &line) > 0)
 	{
 		j++;
+		free(line);
 	}
+	free(line);
 	close(fd);
 	return (j);
 }
@@ -57,6 +59,7 @@ int	check_map(char *map, int i, int j)
 		if (line[i] != '1')
 			map_error(3);
 	}
+	free(line);
 	while (get_next_line(fd, &line) > 0)
 	{
 		j = ft_strlen(line);
@@ -64,8 +67,10 @@ int	check_map(char *map, int i, int j)
 			map_error(4);
 		if ((line[0] != '1') || (line[ft_strlen(line) - 1] != '1'))
 			map_error(3);
+		free(line);
 	}
 	close(fd);
+	free(line);
 	return (i);
 }
 

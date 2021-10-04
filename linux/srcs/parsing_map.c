@@ -32,7 +32,7 @@ int	check_unique_object(char **map, char c)
 	i = -1;
 	j = -1;
 	flag = 0;
-	while (map[++i])
+	while (map[++i][0])
 	{
 		while (map[i][++j])
 		{
@@ -53,7 +53,7 @@ int	check_valid_map_char(char **map)
 
 	i = -1;
 	j = -1;
-	while (map[++i])
+	while (map[++i][0])
 	{
 		while (map[i][++j])
 		{

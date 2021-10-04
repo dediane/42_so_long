@@ -19,6 +19,7 @@ int	destroy_all_images(t_env *env)
 	destroy_texture(env, &(env->floor));
 	destroy_texture(env, &(env->wall));
 	destroy_texture(env, &(env->player_front));
+	destroy_texture(env, &(env->player_front2));
 	destroy_texture(env, &(env->player_left));
 	destroy_texture(env, &(env->player_right));
 	destroy_texture(env, &(env->player_back));

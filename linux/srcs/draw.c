@@ -39,7 +39,7 @@ int	draw_map(t_env *env, int countX, int countY)
 
 	y = -1;
 	x = -1;
-	while (env->map[++y])
+	while (env->map[++y][0])
 	{
 		countX = 0;
 		while (env->map[y][++x])
@@ -61,7 +61,7 @@ int	draw_wall(t_env *env, int countX, int countY)
 
 	y = -1;
 	x = -1;
-	while (env->map[++y])
+	while (env->map[++y][0])
 	{
 		countX = 0;
 		while (env->map[y][++x])
