@@ -16,8 +16,6 @@ int	check_sprites(char **map)
 {
 	if (check_unique_object(map, 'P'))
 		return (1);
-	if (check_unique_object(map, 'E'))
-		return (1);
 	if (check_valid_map_char(map))
 		return (1);
 	return (0);
@@ -59,7 +57,7 @@ int	check_valid_map_char(char **map)
 		{
 			if (map[i][j] != '0' && map[i][j] != '1' \
 			&& map[i][j] != 'P' && map[i][j] != 'C' && \
-			map[i][j] != 'E' && map[i][j] != 'Z')
+			map[i][j] != 'E')
 				return (1);
 		}
 		j = -1;
@@ -69,7 +67,7 @@ int	check_valid_map_char(char **map)
 
 int	check_walls_side(char *line, int size, int i)
 {
-	if ((size != i || i == 0) || ((line[0] != '1') || (line[size - 1] != '1')))
+	if ((size != i || i == 0) || ((line[0] != '1') || (line[size] != '1')))
 	{	
 		return (1);
 	}

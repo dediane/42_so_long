@@ -58,7 +58,6 @@ int	main(int ac, char **av)
 	check_before_init(ac, av);
 	init_game(&env, av[1]);
 	play_game(&env);
-	play_bonus(&env);
 	mlx_hook(env.params.mlx_win, 2, 1L << 0, keypress, &env);
 	mlx_hook(env.params.mlx_win, 33, 1L << 17, quit_program, &env);
 	mlx_loop_hook(env.params.mlx, show_image, &env);
