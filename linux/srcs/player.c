@@ -28,7 +28,7 @@ int	get_player_position(t_env *env)
 				env->player.pos_x = x;
 				env->player.pos_y = y;
 				draw_texture(env, (x * env->ppi), \
-				(y * env->ppi), &(env->player_left));
+				(y * env->ppi), &(env->player_front));
 			}
 		}
 		x = -1;

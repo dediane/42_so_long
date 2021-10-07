@@ -62,12 +62,13 @@ int	check_map(char *map, int i, int j)
 	free(line);
 	while (get_next_line(fd, &line) > 0)
 	{
-		j = check_walls_side(line, ft_strlen(line), i);
+		j += check_walls_side(line, ft_strlen(line), i);
 		free(line);
 	}
 	close(fd);
 	free(line);
-	if (j == 1)
+	printf("Valeur de j = %i\n", j);
+	if (j >= 1)
 		map_error(3);
 	return (i);
 }
