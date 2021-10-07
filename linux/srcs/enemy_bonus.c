@@ -45,24 +45,30 @@ int	get_enemy_position(t_env *env, t_object *enemy)
 
 int	enemy_move(t_object *enemy, t_object *player, t_env *env, t_img *img)
 {
-	float	i;
-	float	j;
-
-	i = 0;
-	j = 0.25;
-	while ((enemy->pos_x != player->pos_x) && (enemy->pos_y != player->pos_y) \
-	&& ((enemy->pos_y + 1) != '1'))
+	while (1)
 	{
-		draw_texture(env, enemy->pos_x, enemy->pos_y, img);
-		i += j;
+		while ((enemy->pos_x != player->pos_x) && (enemy->pos_y != player->pos_y) \
+		&& ((enemy->pos_y + 1) != '1'))
+		{
+			draw_texture(env, enemy->pos_x, enemy->pos_y, img);
+			enemy->pos_y += 0.25;
+		}
 	}
 	return (0);
+}
+
+int	show_bonus(t_env *env)
+{
+	mlx_put_image_to_window(env->params.mlx, \
+	env->params.mlx_win, env->enemy.img.img, 0, 0);
+	return (1);
 }
 
 int	play_bonus(t_env *env)
 {
 	load_enemy(env);
 	get_enemy_position(env, &(env->enemy));
-	enemy_move(&(env->enemy), &(env->player), env, &(env->enemy_front));
+	//enemy_move(&(env->enemy), &(env->player), env, &(env->enemy_front));
+	mlx_loop_hook(env->params.mlx, show_bonus, &env);
 	return (0);
 }

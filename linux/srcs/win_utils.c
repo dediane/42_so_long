@@ -59,7 +59,12 @@ int	keypress(int key, t_env *env)
 		move_1(key, env);
 	else
 		move_2(key, env);
-	env->count++;
-	printf("%i\n", env->count);
+	if (key == UP || key == DOWN || key == LEFT || key == RIGHT || \
+	key == ARROW_DOWN || key == ARROW_UP || key == ARROW_LEFT || \
+	key == ARROW_RIGHT)
+	{
+		env->count++;
+		printf("%i\n", env->count);
+	}
 	return (0);
 }
