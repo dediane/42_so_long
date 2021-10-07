@@ -67,7 +67,6 @@ int	check_valid_map_char(char **map)
 
 int	check_walls_side(char *line, int size, int i)
 {
-	printf("size = %i\n line = %s \n i = %i \n line[0] = %i\n line[size - 1] = %i \n", size, line, i, line[0], line[size - 1]);
 	if ((size != i || i == 0) || ((line[0] != '1') || (line[size - 1] != '1')))
 		return (1);
 	return (0);

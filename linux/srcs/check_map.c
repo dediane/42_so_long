@@ -67,7 +67,6 @@ int	check_map(char *map, int i, int j)
 	}
 	close(fd);
 	free(line);
-	printf("Valeur de j = %i\n", j);
 	if (j >= 1)
 		map_error(3);
 	return (i);
