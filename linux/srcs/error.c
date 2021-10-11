@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+        */
+/*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:18:10 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/10/11 17:32:15 by ddecourt@st      ###   ########.fr       */
+/*   Updated: 2021/10/11 18:17:37 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_clear_tab(char ***s)
 	i = 0;
 	while ((*s)[i])
 	{
-			free((*s)[i]);
+		free((*s)[i]);
 		i++;
 	}
 	free(*s);
