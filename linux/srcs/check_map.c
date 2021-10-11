@@ -6,7 +6,7 @@
 /*   By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:51:47 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/09/21 22:55:09 by ddecourt@st      ###   ########.fr       */
+/*   Updated: 2021/10/11 18:05:03 by ddecourt@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	check_map(char *map, int i, int j)
 	}
 	close(fd);
 	free(line);
-	if (j >= 1)
+	if ((j > 0) || (i <= 1))
 		map_error(3);
 	return (i);
 }
@@ -78,7 +78,7 @@ char	**store_map(char **map, int width, int height, char *file)
 	int	i;
 
 	i = 0;
-	map = malloc((sizeof(char *) * height) + (sizeof(char) * height * width));
+	map = malloc((sizeof(char *) * height) + (sizeof(char) * (height + 1) * width));
 	if (!(map))
 		return (NULL);
 	fd = open(file, O_RDONLY);
@@ -97,6 +97,11 @@ int	check_last_line(char **map, int height)
 	int	i;
 
 	i = -1;
+	if (height <= 1)
+	{
+		ft_clear_tab(&map);
+		map_error(3);
+	}
 	height -= 1;
 	while (map[height][++i])
 	{
