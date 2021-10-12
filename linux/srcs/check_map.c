@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddecourt <ddecourt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:51:47 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/10/11 18:17:17 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/10/12 16:02:56 by ddecourt@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ char	**store_map(char **map, int width, int height, char *file)
 	int	i;
 
 	i = 0;
-	map = malloc((sizeof(char *) * height) + (sizeof(char) * \
-	(height + 1) * width));
+	map = malloc((sizeof(char *) * (height + 1)) + (sizeof(char) * \
+	(height + 1) * (width + 1)));
 	if (!(map))
 		return (NULL);
 	fd = open(file, O_RDONLY);
