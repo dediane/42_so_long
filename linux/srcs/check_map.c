@@ -6,7 +6,7 @@
 /*   By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:51:47 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/10/12 16:02:56 by ddecourt@st      ###   ########.fr       */
+/*   Updated: 2021/10/13 18:43:06 by ddecourt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ char	**store_map(char **map, int width, int height, char *file)
 		i++;
 		map[i] = NULL;
 	}
+	map[i + 1] = NULL;
 	close(fd);
 	return (map);
 }

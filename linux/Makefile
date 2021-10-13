@@ -6,7 +6,7 @@
 #    By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 13:40:58 by ddecourt          #+#    #+#              #
-#    Updated: 2021/09/23 18:07:00 by ddecourt         ###   ########.fr        #
+#    Updated: 2021/10/13 18:45:48 by ddecourt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ HEADER	= mlx/mlx.h
 
 CC		= clang
 
-CFLAGS	= -g -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g
 
 RM = rm -f
 
