@@ -6,7 +6,7 @@
 /*   By: ddecourt@student.42.fr <ddecourt>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:51:47 by ddecourt          #+#    #+#             */
-/*   Updated: 2021/10/13 18:43:06 by ddecourt         ###   ########.fr       */
+/*   Updated: 2021/10/20 15:29:41 by ddecourt@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	get_nb_of_line(char *map)
 	}
 	free(line);
 	close(fd);
+	if (j == 1)
+		map_error(3);
 	return (j);
 }
 
